@@ -1,73 +1,238 @@
-#headid {
-    width: 98%;
-    height: 60px;
-    background-color: #c41926;
-    border-radius: 10px;
-    margin: 0 auto;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+svg{
+    fill: whitesmoke;
+
+}
+
+body {
+    background-color: #FEFDF5;
+    font-family: "DM Sans", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.menu {
+
+    background-color: #C41926;
+    height: 4rem;
+    border-radius: 0.5rem;
+    margin: 0.5rem 0.5rem;
+
     display: flex;
+    gap: 1rem-;
+    font-size: 1.1rem;
+    color: white;
+
+    padding: 1.2rem;
+    text-align: center;
     align-items: center;
 }
 
-#menu {
-    margin-left: 20px;
-    width: 20%;
-}
-
-#home {
+.menu ul {
+    list-style: none;
     display: flex;
-    justify-content: space-evenly;
+  
+   
     align-items: center;
-    margin: 0 auto;
-    height: 60px;
-    width: 60%;
 }
 
-.text {
+.menu img{
+    width: 15%;
+}
+
+.menu h1{
+    margin-top: 1.5rem;
+}
+
+.logo{
     display: flex;
-    color: #fff;
-    font-size: 1.5em;
+    
+    margin-right: 3rem;
 }
 
-.input {
-    width: 100%;
-    max-width: 320px;
-    height: 15px;
-    padding: 12px;
-    border-radius: 12px;
-    border: 1.5px solid lightgrey;
-    outline: none;
-    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-    box-shadow: 0px 0px 20px -18px;
-    display: flex;
+.search{
+    height: 2rem;
+    border-radius: 0.5rem;
+    border: none;
+    padding: 1.5rem;
+    width: 20rem;
+   
+    font-family: "DM Sans", sans-serif;
 }
 
-.input:hover {
-    border: 2px solid lightgrey;
-    box-shadow: 0px 0px 20px -17px;
+#search_icon {
+    width: 2%;
+    margin-top: 0.5rem;
+    position: absolute;
+    margin-left: -5rem;
 }
 
-.input:active {
-    transform: scale(0.95);
+.button_login{
+
 }
 
-.input:focus {
-    border: 2px solid grey;
-}
+/* Slogan Título*/
 
-#icons {
+.title_home{
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    height: 60px;
-    width: 20%;
-    background-color: #c41926;
+    justify-content: space-around;
+
+    margin-top: 2rem;
+   
 }
 
-#login {
-    background-color: #c41926;
-    border: solid;
-    border-color: #737373;
-    border-width: 1px;
-    border-radius: 30px;
-    width: 50%;
+.slogan{
+    font-size: 2rem;
+
+    margin-top: 8rem;
+}
+
+.slogan span{
+    color: #C41926;
+   
+}
+
+.slogan p{
+    font-size: 1.2rem;
+
+    width: 35rem;
+    margin-top: 2rem;
+}
+
+/* Imagens - Slogan */
+
+.title_home img{
+    width: 80%;
+}
+
+.imagens_home1{
+    position: relative;
+    margin-top: 2rem;
+
+}
+
+.imagens_home2{
+    position: absolute;
+    margin-top: -10rem;
+    margin-left: -10rem;
+}
+
+/* Box Images - Slogan */
+
+.box_images1{
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    z-index: 1;
+
+    border-radius: 2rem;
+    border: 5px solid rgba(126, 126, 126, 0.116);
+    position: absolute;
+    
+
+    margin-left: -5rem;
+    margin-top: 5rem;
+
+    text-align: center;
+
+    padding: 0.5rem;
+    width: 8rem;
+
+    background-color: white;
+
+}
+
+.box_images2{
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    
+    border-radius: 2rem;
+    border: 5px solid rgba(126, 126, 126, 0.116);
+    position: absolute;
+    
+
+    margin-left: 6rem;
+    margin-top: -2rem;
+
+    text-align: center;
+
+    padding: 0.5rem;
+    width: 6rem;
+
+    background-color: white;
+
+}
+
+
+.box_images3{
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    
+    border-radius: 2rem;
+    border: 5px solid rgba(126, 126, 126, 0.116);
+    position: absolute;
+    
+
+   margin-left: -14rem;
+    margin-top: -7rem;
+
+    text-align: center;
+
+    padding: 0.5rem;
+    width: 6rem;
+
+    background-color: white;
+
+   
+}
+
+/* Categoria - Menu */
+
+.categorias_menu{
+    margin-top: 15rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+
+}
+
+.item_categoria{
+    border: 1px dashed #C41926 ;
+    border-radius: 1.2rem;
+
+    text-align: center;
+
+    padding: 1.5rem;
+    width: 12rem;
+}
+
+.item_categoria h2{
+    font-size: 1.2rem;
+}
+
+
+
+.esquerda{
+  text-align: right;
+
+}
+
+
+.item_seta img{
+    width: 10%;
+
+
 }
