@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #A00A15;
+    font-family: "DM Sans", sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+svg{
+    fill: white;
+}
+
+.part_white{
+    background-color: #FFFFFF;
+
+    border-radius: 0 ;
+    width: 50rem;
+    height: 100vh;
+
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_login h1{
+    margin: 1.5rem 0 1rem ;
+
+    font-size: 2.5rem;
+}
+
+.form_login{
+    padding: 2rem;
+    border: 1px solid black;
+    border-radius: 1.5rem;
+    width: 31rem;
+    height: 35rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.input-label{
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+}
+
+.input-label input{
+     background-color: #FFF6F4;
+     padding: 0.6rem;
+
+     border: none;
+     border-radius: 0.5rem;
+
+     width: 100%;
+
+     font-family: "DM Sans", sans-serif;
+     
+}
+
+.p_forgot{
+    text-align: right;
+    color: #6e6d6c;
+
+    margin-top: -1rem;
+}
+
+
+.button_login{
+    background-color: #C41926;
+    padding: 0.5rem;
+    width: 10rem;
+
+    border: none;
+    border-radius: 2rem;
+
+    font-family: "Poppins", sans-serif;
+    text-transform: uppercase;
+    color: white;
+
+    margin-left: 8rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+}
+
+p{
+    color: #6e6d6c;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+span{
+    color: #C41926;
+    font-weight: bold;
+}
+
+/* Cadastrar Usuário - Parte Flex */
+
+#flex_final_form{
+    margin-top: 1.5rem;
+
+    display: flex;
+    gap: 4.5rem;
+}
+
+#flex_final_form button{
+    margin-left: 0;
+}
