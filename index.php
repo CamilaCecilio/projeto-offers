@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OffersFast</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="insert.php">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,7 +43,7 @@
                 <input type="text" name="search" class="search" placeholder="Pesquisar produto">
                 <img src="./assets/search.svg" alt="" id="search_icon">
             </div>
-            <a href="">
+            <a href="./cadastrar-produto/cadastro-produto.php">
                 <img src="./assets/heart.svg" alt="">
             </a>
             <a href="">
@@ -50,7 +51,7 @@
             </a>
          
                 
-            <a href=""> <button class="button_login"> <img src="./assets/user.svg" alt="">Login In</button></a>
+            <a href="tela-login/login.php"> <button class="button_login"> <img src="./assets/user.svg" alt="">Login In</button></a>
             
             <a href="">
                 <img src="" alt="">

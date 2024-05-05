@@ -33,17 +33,15 @@
 
             //Inserindo dados no banco
             if (isset($_POST['submit'])) {
-                if (empty($_POST['nome'] || empty($_POST['email']  ||  empty($_POST['senha'] )))) {
+                if (empty($_POST['nome_produto'] || empty($_POST['categoria']  ||  empty($_POST['preco'] ||  empty($_POST['descricao']))))) {
                     echo "<div class='alert alert-danger' role='alert'>Preencha os campos! </div>";
                 } else {
-                    $nome = $_POST['nome'];
-                    $email = $_POST['email'];
-                    $senha = $_POST['senha'];
-
-                    if (strlen($senha) > 6 || strlen($senha) < 6) {
-                        echo "<div class='alert alert-danger' role='alert'>A senha deve ter 6 caracteres!</div>";
-                    } else {
-                        $sql = "INSERT INTO usuario VALUES(NULL, '$nome','$email','$senha')";
+                    $nome_produto = $_POST['nome_produto'];
+                    $categoria = $_POST['categoria'];
+                    $preco = $_POST['preco'];
+                    $descricao = $_POST['descricao'];
+                
+                        $sql = "INSERT INTO produto VALUES(NULL, '$nome_produto','$categoria','$preco','$descricao')";
 
 
                     try {
@@ -54,9 +52,9 @@
                         echo "<div class='alert alert-danger'role='alert'>Erro ao inserir: " . $e->getMessage() . "</div>";
                     }
                 }}
-            }
+            
             ?>
-            <a href="cadastro.php" >Voltar</a>
+            <a href="cadastroProduto.php" >Voltar</a>
             <a href="../index.php" >Home</a>
         </div>
     </div>

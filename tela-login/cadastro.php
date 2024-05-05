@@ -30,7 +30,7 @@
 
     <div class="part_white">
 
-        <form action="POST" class="form_login">
+        <form action="insert.php" method="post" class="form_login">
 
             <h1>Crie sua conta</h1>
 
@@ -41,12 +41,12 @@
 
             <div class="input-label">
                 <label for="email">E-mail</label>
-                <input type="text" name="email" placeholder="exemplo@gmail.com">
+                <input type="email" name="email" placeholder="exemplo@gmail.com">
             </div>
 
             <div class="input-label">
                 <label for="senha">Senha</label>
-                <input type="password" name="senha" placeholder="***********">
+                <input type="password" name="senha" placeholder="A senha deve ter 6 caracteres">
             </div>
 
 
@@ -56,9 +56,9 @@
                 </a>
 
 
-                <a href="">
+                <a href="index.php">
 
-                    <button class="button_login"> Cadastrar   <img src="./assets_login/seta-svg/ant-design_swap-left-outlined.svg" alt=""></button>
+                    <button class="button_login" type="submit" name="submit"> Cadastrar   <img src="./assets_login/seta-svg/ant-design_swap-left-outlined.svg" alt=""></button>
                   
                 </a>
             </div>

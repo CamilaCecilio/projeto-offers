@@ -53,7 +53,7 @@
                 <button class="button_login">Login In  <img src="./assets_login/seta-svg/ant-design_swap-left-outlined.svg" alt=""></button>
             </a>
 
-            <a href="">
+            <a href="cadastro.php">
                 <p>Ainda não tem uma conta? <span>Cadastrar</span></p>
             </a>
         </form>
