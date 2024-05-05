@@ -27,7 +27,7 @@
         <div class="logo">
             <img src="./assets/logo.png" alt="">
             <h1>
-                Offers Fast
+                OffersFast
             </h1>
         </div>
 
