@@ -67,11 +67,20 @@
             </div>
           
 
+            <div id="flex_final_form">
                 <a href="../index.php">
+                    <span>Voltar</span>
+                </a>
 
-                    <button id="button_cadastro" type="submit" name="submit"> Cadastrar Produto <img src="./assets_login/seta-svg/ant-design_swap-left-outlined.svg" alt=""></button>
+
+                <a href="index.php">
+
+                <button id="button_cadastro" type="submit" name="submit"> Cadastrar Produto <img src="tela_login/assets_login/icon_button.svg" alt=""></button>
                   
                 </a>
+            </div>
+
+
             </div>
         </form>
     </div>

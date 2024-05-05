@@ -110,10 +110,24 @@ textarea{
     resize: none;
     height: 7rem;
     padding: 0.5rem;
+
+    border-radius: 0.5rem;
 }
 
 .item-flex{
     display: flex;
     flex-direction: row;
     gap: 5rem;
+}
+
+/* Cadastrar Produto - Parte Flex */
+
+#flex_final_form{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#flex_final_form button{
+    margin-left: 0;
 }

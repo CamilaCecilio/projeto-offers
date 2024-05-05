@@ -22,7 +22,7 @@
         rel="stylesheet">
 
 
-    <link rel="stylesheet" href="style-login.css">
+    <link rel="stylesheet" href="styleLogin.css">
 
 </head>
 
@@ -58,7 +58,7 @@
 
                 <a href="index.php">
 
-                    <button class="button_login" type="submit" name="submit"> Cadastrar   <img src="./assets_login/seta-svg/ant-design_swap-left-outlined.svg" alt=""></button>
+                    <button class="button_login" type="submit" name="submit"> Cadastrar   <img src="./assets_login/icon_button.svg" alt=""></button>
                   
                 </a>
             </div>
