@@ -51,7 +51,7 @@
 
 
             <div id="flex_final_form">
-                <a href="">
+                <a href="login.php">
                     <p>Já tem uma conta? <span>Entrar</span></p>
                 </a>
 

@@ -67,7 +67,7 @@
             </div>
           
 
-                <a href="index.php">
+                <a href="../index.php">
 
                     <button id="button_cadastro" type="submit" name="submit"> Cadastrar Produto <img src="./assets_login/seta-svg/ant-design_swap-left-outlined.svg" alt=""></button>
                   
