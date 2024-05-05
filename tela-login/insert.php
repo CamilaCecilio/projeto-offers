@@ -33,7 +33,7 @@
 
             //Inserindo dados no banco
             if (isset($_POST['submit'])) {
-                if (empty($_POST['nome'] || empty($_POST['email']  ||  empty($_POST['semha'] )))) {
+                if (empty($_POST['nome'] || empty($_POST['email']  ||  empty($_POST['senha'] )))) {
                     echo "<div class='alert alert-danger' role='alert'>Preencha os campos! </div>";
                 } else {
                     $nome = $_POST['nome'];
