@@ -128,7 +128,181 @@
 
     </section>
     
-    <section>
+    <section class="ofertas">
+
+        <div class="item_oferta">
+
+            <div class="img_like">
+            <img src="./assets/Imagem1.png" alt="">
+
+            <img src="./assets/heart.svg" alt="" >
+            </div>
+            
+          
+            <div class="informacoes_item">
+    
+                    <h2>Nome Produto</h2>
+                    <p>R$</p>
+                
+            </div>
+
+            <div class="tipo_produto ">
+
+                <div>
+                <span>Frutas</span>
+                <span style="background-color: rgb(224, 162, 68);">Sacolão</span>
+                 </div>
+               
+                <a href=""><button><img src="" alt="">+</button></a>
+                 
+            </div>
+        </div>
+
+        <div class="item_oferta">
+
+            <div class="img_like">
+            <img src="./assets/Imagem1.png" alt="">
+
+            <img src="./assets/heart.svg" alt="" >
+            </div>
+            
+          
+            <div class="informacoes_item">
+    
+                    <h2>Nome Produto</h2>
+                    <p>R$</p>
+                
+            </div>
+
+            <div class="tipo_produto ">
+
+                <div>
+                <span>Frutas</span>
+                <span style="background-color: rgb(224, 162, 68);">Sacolão</span>
+                 </div>
+               
+                <a href=""><button><img src="" alt="">+</button></a>
+                 
+            </div>
+        </div>
+
+
+        <div class="item_oferta">
+
+            <div class="img_like">
+            <img src="./assets/Imagem1.png" alt="">
+
+            <img src="./assets/heart.svg" alt="" >
+            </div>
+            
+          
+            <div class="informacoes_item">
+    
+                    <h2>Nome Produto</h2>
+                    <p>R$</p>
+                
+            </div>
+
+            <div class="tipo_produto ">
+
+                <div>
+                <span>Frutas</span>
+                <span style="background-color: rgb(224, 162, 68);">Sacolão</span>
+                 </div>
+               
+                <a href=""><button><img src="" alt="">+</button></a>
+                 
+            </div>
+        </div>
+
+        <div class="item_oferta">
+
+            <div class="img_like">
+            <img src="./assets/Imagem1.png" alt="">
+
+            <img src="./assets/heart.svg" alt="" >
+            </div>
+            
+          
+            <div class="informacoes_item">
+    
+                    <h2>Nome Produto</h2>
+                    <p>R$</p>
+                
+            </div>
+
+            <div class="tipo_produto ">
+
+                <div>
+                <span>Frutas</span>
+                <span style="background-color: rgb(224, 162, 68);">Sacolão</span>
+                 </div>
+               
+                <a href=""><button><img src="" alt="">+</button></a>
+                 
+            </div>
+        </div>
+
+
+
+        <div class="item_oferta">
+
+            <div class="img_like">
+            <img src="./assets/Imagem1.png" alt="">
+
+            <img src="./assets/heart.svg" alt="" >
+            </div>
+            
+          
+            <div class="informacoes_item">
+    
+                    <h2>Nome Produto</h2>
+                    <p>R$</p>
+                
+            </div>
+
+            <div class="tipo_produto ">
+
+                <div>
+                <span>Frutas</span>
+                <span style="background-color: rgb(224, 162, 68);">Sacolão</span>
+                 </div>
+               
+                <a href=""><button><img src="" alt="">+</button></a>
+                 
+            </div>
+        </div>
+
+
+
+        <div class="item_oferta">
+
+            <div class="img_like">
+            <img src="./assets/Imagem1.png" alt="">
+
+            <img src="./assets/heart.svg" alt="" >
+            </div>
+            
+          
+            <div class="informacoes_item">
+    
+                    <h2>Nome Produto</h2>
+                    <p>R$</p>
+                
+            </div>
+
+            <div class="tipo_produto ">
+
+                <div>
+                <span>Frutas</span>
+                <span style="background-color: rgb(224, 162, 68);">Sacolão</span>
+                 </div>
+               
+                <a href=""><button><img src="" alt="">+</button></a>
+                 
+            </div>
+        </div>
+
 
     </section>
 

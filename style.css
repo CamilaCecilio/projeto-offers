@@ -263,3 +263,81 @@ a {
 
 
 }
+
+
+/* Ofertas - Itens */
+
+.ofertas{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+
+    padding: 3rem;
+    justify-content: center;
+    align-items: center;
+    row-gap: 2rem;
+}
+
+.item_oferta{
+    width: 15rem;
+    height: 20rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+
+
+}
+
+.img_like img{
+    width: 80%;
+   
+}
+
+
+.img_like{
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+
+.informacoes_item h2{
+   
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.informacoes_item p{
+    font-size: 1rem;
+}
+
+.a{
+    display: flex;
+    justify-content: space-around;
+}
+
+.informacoes_item button{
+    margin-top: 2rem;
+   
+}
+
+.tipo_produto{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tipo_produto span{
+    background-color: #64cad8;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    width: 4rem;
+   
+
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
