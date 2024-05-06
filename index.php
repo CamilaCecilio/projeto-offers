@@ -88,39 +88,39 @@
         <div class="item_seta esquerda">
             <img src="./assets/seta-esquerda.svg" alt="">
         </div>
-        <div class="container">
-        <div class="item_categoria">
-            <img src="" alt="">
-            <button>
-                <span class="button_top">
-                    Alimentos
-                </span>
-            </button>
-        </div>
-        <div class="item_categoria">
-            <img src="" alt="">
-            <button>
-                <span class="button_top">
-                    Frutas
-                </span>
-            </button>
-        </div>
-        <div class="item_categoria">
-            <img src="" alt="">
-            <button>
-                <span class="button_top">
-                    Legumes
-                </span>
-            </button>
-        </div>
-        <div class="item_categoria">
-            <img src="" alt="">
-            <button>
-                <span class="button_top">
-                    Limpeza
-                </span>
-            </button>
-        </div>
+        <div class="container container-border">
+            <div class="item_categoria">
+                <img src="" alt="">
+                <button>
+                    <span class="button_top">
+                        Alimentos
+                    </span>
+                </button>
+            </div>
+            <div class="item_categoria">
+                <img src="" alt="">
+                <button>
+                    <span class="button_top">
+                        Frutas
+                    </span>
+                </button>
+            </div>
+            <div class="item_categoria">
+                <img src="" alt="">
+                <button>
+                    <span class="button_top">
+                        Legumes
+                    </span>
+                </button>
+            </div>
+            <div class="item_categoria">
+                <img src="" alt="">
+                <button>
+                    <span class="button_top">
+                        Limpeza
+                    </span>
+                </button>
+            </div>
         </div>
         <div class="item_seta">
             <img src="./assets/seta-direita.svg" alt="">
@@ -131,14 +131,28 @@
     <section class="ofertas">
         <div class="item_oferta">
             <div class="img_like">
-                <img src="./assets/Imagem1.png" alt="">
-                <img src="./assets/heart.svg" alt="">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYR5CdEMaR5_5CFm_pPYTy8RV-CtdcxwjuDOt2POzADQ&s" alt="">
             </div>
             <div class="informacoes_item">
-                <h2>Nome Produto</h2>
-                <p>R$</p>
+                <h2>Tomate</h2>
+                <p>R$8.00</p>
             </div>
-
+            <div class="tipo_produto ">
+                <div>
+                    <span>Frutas</span>
+                    <span style="background-color: rgb(224, 162, 68);">Sacolão</span>
+                </div>
+                <a href=""><button><img src="" alt="">+</button></a>
+            </div>
+        </div>
+        <div class="item_oferta">
+            <div class="img_like">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYR5CdEMaR5_5CFm_pPYTy8RV-CtdcxwjuDOt2POzADQ&s" alt="">
+            </div>
+            <div class="informacoes_item">
+                <h2>Tomate</h2>
+                <p>R$8.00</p>
+            </div>
             <div class="tipo_produto ">
                 <div>
                     <span>Frutas</span>
@@ -150,136 +164,64 @@
         <div class="item_oferta">
 
             <div class="img_like">
-                <img src="./assets/Imagem1.png" alt="">
-
-                <img src="./assets/heart.svg" alt="">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYR5CdEMaR5_5CFm_pPYTy8RV-CtdcxwjuDOt2POzADQ&s" alt="">
             </div>
-
-
             <div class="informacoes_item">
-
                 <h2>Nome Produto</h2>
-                <p>R$</p>
-
+                <p>R$8.00</p>
             </div>
-
             <div class="tipo_produto ">
-
                 <div>
                     <span>Frutas</span>
                     <span style="background-color: rgb(224, 162, 68);">Sacolão</span>
                 </div>
-
                 <a href=""><button><img src="" alt="">+</button></a>
-
             </div>
         </div>
-
-
         <div class="item_oferta">
-
             <div class="img_like">
-                <img src="./assets/Imagem1.png" alt="">
-
-                <img src="./assets/heart.svg" alt="">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYR5CdEMaR5_5CFm_pPYTy8RV-CtdcxwjuDOt2POzADQ&s" alt="">
             </div>
-
-
             <div class="informacoes_item">
-
-                <h2>Nome Produto</h2>
-                <p>R$</p>
-
+                <h2>Tomate</h2>
+                <p>R$8.00</p>
             </div>
-
             <div class="tipo_produto ">
-
                 <div>
                     <span>Frutas</span>
                     <span style="background-color: rgb(224, 162, 68);">Sacolão</span>
                 </div>
-
                 <a href=""><button><img src="" alt="">+</button></a>
-
-            </div>
-        </div>
-
-        <div class="item_oferta">
-
-            <div class="img_like">
-                <img src="./assets/Imagem1.png" alt="">
-
-                <img src="./assets/heart.svg" alt="">
-            </div>
-
-
-            <div class="informacoes_item">
-
-                <h2>Nome Produto</h2>
-                <p>R$</p>
-
-            </div>
-
-            <div class="tipo_produto ">
-
-                <div>
-                    <span>Frutas</span>
-                    <span style="background-color: rgb(224, 162, 68);">Sacolão</span>
-                </div>
-
-                <a href=""><button><img src="" alt="">+</button></a>
-
             </div>
         </div>
 
 
 
         <div class="item_oferta">
-
             <div class="img_like">
-                <img src="./assets/Imagem1.png" alt="">
-
-                <img src="./assets/heart.svg" alt="">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYR5CdEMaR5_5CFm_pPYTy8RV-CtdcxwjuDOt2POzADQ&s" alt="">
             </div>
-
-
             <div class="informacoes_item">
-
-                <h2>Nome Produto</h2>
-                <p>R$</p>
-
+                <h2>Tomate</h2>
+                <p>R$8.00</p>
             </div>
-
             <div class="tipo_produto ">
-
                 <div>
                     <span>Frutas</span>
                     <span style="background-color: rgb(224, 162, 68);">Sacolão</span>
                 </div>
-
                 <a href=""><button><img src="" alt="">+</button></a>
-
             </div>
         </div>
-
-
-
         <div class="item_oferta">
-
             <div class="img_like">
-                <img src="./assets/Imagem1.png" alt="">
-
-                <img src="./assets/heart.svg" alt="">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYR5CdEMaR5_5CFm_pPYTy8RV-CtdcxwjuDOt2POzADQ&s" alt="">
             </div>
             <div class="informacoes_item">
-
-                <h2>Nome Produto</h2>
-                <p>R$</p>
-
+                <h2>Tomate</h2>
+                <p>R$8.00</p>
             </div>
-
             <div class="tipo_produto ">
-
                 <div>
                     <span>Frutas</span>
                     <span style="background-color: rgb(224, 162, 68);">Sacolão</span>
@@ -290,6 +232,11 @@
     </section>
     <section class="sobre_nos">
     </section>
+    <footer>
+        <div class="container">
+            <img src="assets/logooffers.png" alt="">
+        </div>
+    </footer>
 </body>
 
 </html>
