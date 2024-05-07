@@ -131,10 +131,10 @@
     <section class="ofertas">
         <div class="item_oferta">
             <div class="img_like">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYR5CdEMaR5_5CFm_pPYTy8RV-CtdcxwjuDOt2POzADQ&s" alt="">
+                <img src="https://www.imagensempng.com.br/wp-content/uploads/2021/07/04-14.png" alt="">
             </div>
             <div class="informacoes_item">
-                <h2>Tomate</h2>
+                <h2>Maçã</h2>
                 <p>R$8.00</p>
             </div>
             <div class="tipo_produto ">
@@ -147,11 +147,11 @@
         </div>
         <div class="item_oferta">
             <div class="img_like">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYR5CdEMaR5_5CFm_pPYTy8RV-CtdcxwjuDOt2POzADQ&s" alt="">
+                <img src="https://mfresh.s3.amazonaws.com/uploads/product/sku/9219/image/d0872af7-3a47-47cd-b388-b36e0445de9d.png" alt="">
             </div>
             <div class="informacoes_item">
-                <h2>Tomate</h2>
-                <p>R$8.00</p>
+                <h2>Biscoito PassaTempo</h2>
+                <p>R$3.00</p>
             </div>
             <div class="tipo_produto ">
                 <div>
