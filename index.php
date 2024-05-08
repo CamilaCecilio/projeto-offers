@@ -1,14 +1,3 @@
-<?php include = "conexaoBD.php" 
-
- //Criar o comando
- $sql = 'SELECT * FROM produto';
- //Executar o comando
- try {
-     $resultado = $conn->query($sql);
- } catch (Exception $e) {
-     $resultado = $e->getMessage();
- 
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -143,9 +132,6 @@
     </section>
 
     <section class="ofertas">
-    <?php
-    foreach ($resultado as $linha) {
-    ?>
         <div class="item_oferta">
             <div class="img_like">
                 <img src="https://www.imagensempng.com.br/wp-content/uploads/2021/07/04-14.png" alt="">
@@ -246,11 +232,6 @@
                 <a href=""><button><img src="" alt="">+</button></a>
             </div>
         </div>
-        <?php
-            }
-            unset($_POST, $resultado, $resultadoInsert);
-            $conn->close();
-            ?>
     </section>
     <section class="sobre_nos">
     </section>
