@@ -1,21 +1,5 @@
 <?php
- //dados de conexão
- $hostname = "localhost";
- $username = "root";
- $password = "";
- $database ="bdOffersFast";
-
- //Conectar ao banco de dados
- try {
-     $conn = new mysqli(
-         $hostname,
-         $username,
-         $password,
-         $database
-     );
- } catch (Exception $e) {
-     die("<div class='alert alert-danger' role='alert'>Erro ao conectar: " . $e->getMessage() . "</div>");
- }
+include "./conexaoBD.php";
 
 if(isset($_POST['email']) || isset($_POST['senha'])) {
 

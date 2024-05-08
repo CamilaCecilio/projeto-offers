@@ -32,12 +32,12 @@
 
     <div class="part_white">
 
-        <form action="insertProduto.php" method="post" class="form_login">
+        <form action="insertProduto.php" method="POST" class="form_login">
 
             <h1>Cadastre seu Produto</h1>
 
             <div class="input-label">
-                <label for="nome">Nome do Produto</label>
+                <label for="nome_produto">Nome do Produto</label>
                 <input type="text" name="nome_produto" placeholder="Digite o nome do produto">
             </div>
 

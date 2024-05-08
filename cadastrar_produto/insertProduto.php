@@ -13,23 +13,8 @@
     <div class="container">
         <div class="border p-3">
             <?php
-            //dados de conexão
-            $hostname = "localhost";
-            $username = "root";
-            $password = "";
-            $database ="bdOffersFast";
 
-            //Conectar ao banco de dados
-            try {
-                $conn = new mysqli(
-                    $hostname,
-                    $username,
-                    $password,
-                    $database
-                );
-            } catch (Exception $e) {
-                die("<div class='alert alert-danger' role='alert'>Erro ao conectar: " . $e->getMessage() . "</div>");
-            }
+            include "./conexaoBD.php";
 
             //Inserindo dados no banco
             if (isset($_POST['submit'])) {
