@@ -1,21 +1,31 @@
+<?php
+// Conexão com o banco de dados
+include "conexaoBD.php";
 
+// Consulta SQL para selecionar todos os produtos
+$sql = "SELECT * FROM produto";
+$result = $conn->query($sql);
+
+// Definindo o limite de produtos a serem exibidos
+$limite = 6;
+$contador = 0;
+?>
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OffersFast</title>
     <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- FONTE -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- FONTE -->
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz@0,9..40;1,9..40&display=swap" rel="stylesheet"> <!-- FONTE -->
     <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- FONTE -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- FONTE -->
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,700;1,9..40,700&display=swap" rel="stylesheet"> <!-- FONTE -->
+    <link href="insert.php"> <!-- ARQUIVO INSERT -->
     <link rel="stylesheet" href="style.css"> <!-- CSS -->
-    <link rel="stylesheet" href="insert.php"> <!-- ARQUIVO INSERT -->
+    <link rel="stylesheet" href="main.css"> <!-- CSS -->
+    <title>Offers</title>
 </head>
-
 <body>
     <div id="headid">
         <div id="menu">
@@ -49,12 +59,14 @@
                     <path fill="#ffffff" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z" />
                 </svg>
                 <a href="tela_login\login.php">Login <ul>
-                   <a href=""><li>LogOut</li></a> 
-                </ul></a>
+                        <a href="">
+                            <li>LogOut</li>
+                        </a>
+                    </ul>
+                </a>
             </div>
         </div>
     </div>
-
     <section class="title_home">
         <div class="slogan">
             <h1>Grandes <span>ofertas</span>,</br>
@@ -128,110 +140,53 @@
         <div class="item_seta">
             <img src="./assets/seta-direita.svg" alt="">
         </div>
-
     </section>
-
     <section class="ofertas">
-        <div class="item_oferta">
-            <div class="img_like">
-                <img src="https://www.imagensempng.com.br/wp-content/uploads/2021/07/04-14.png" alt="">
+        <?php
+        // Loop através dos produtos usando foreach
+        foreach ($result as $produto) {
+            // Verifica se o contador atingiu o limite
+            if ($contador >= $limite) {
+                break;
+            }
+        ?>
+            <div class="produto">
+                <form action="tela_favoritos/carrinho.php" method="GET">
+                    <div style="display: none;"><?php echo $produto['id_Produto']; ?></div>
+                    <div><strong>Nome:</strong> <?php echo $produto['nome_produto']; ?></div>
+                    <div><strong>Preço:</strong> <?php echo $produto['preco']; ?></div>
+                    <div><strong>Tipo:</strong> <?php echo $produto['tipo']; ?></div>
+                    <div><strong>Quantidade:</strong> <?php echo $produto['quantidade']; ?></div>
+                    <div><strong>Categoria:</strong> <?php echo $produto['categoria']; ?></div>
+                    <div><strong>Descrição:</strong> <?php echo $produto['descricao']; ?></div>
+                    <div class="con-like">
+                        <input id="btn-<?php echo $produto['id_Produto']; ?>" data-id="<?php echo $produto['id_Produto']; ?>" data-status="<?php echo $produto['favorito']; ?>" class="like" type="checkbox" title="like">
+                        <div class="checkmark">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="outline" viewBox="0 0 24 24">
+                                <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Zm-3.585,18.4a2.973,2.973,0,0,1-3.83,0C4.947,16.006,2,11.87,2,8.967a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,8.967a1,1,0,0,0,2,0,4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,8.967C22,11.87,19.053,16.006,13.915,20.313Z"></path>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="filled" viewBox="0 0 24 24">
+                                <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z"></path>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="100" width="100" class="celebrate">
+                                <polygon class="poly" points="10,10 20,20"></polygon>
+                                <polygon class="poly" points="10,50 20,50"></polygon>
+                                <polygon class="poly" points="20,80 30,70"></polygon>
+                                <polygon class="poly" points="90,10 80,20"></polygon>
+                                <polygon class="poly" points="90,50 80,50"></polygon>
+                                <polygon class="poly" points="80,80 70,70"></polygon>
+                            </svg>
+                        </div>
+                    </div>
+                    <br />
+                </form>
             </div>
-            <div class="informacoes_item">
-                <h2><?= $linha['nome_produto'] ?></h2>
-                <p><?= $linha['preco'] ?></p>
-            </div>
-            <div class="tipo_produto ">
-                <div>
-                    <span><?= $linha['categoria'] ?></span>
-                    <span style="background-color: rgb(224, 162, 68);">Sacolão</span>
-                </div>
-                <a href=""><button><img src="" alt="">+</button></a>
-            </div>
-        </div>
-        <div class="item_oferta">
-            <div class="img_like">
-                <img src="https://mfresh.s3.amazonaws.com/uploads/product/sku/9219/image/d0872af7-3a47-47cd-b388-b36e0445de9d.png" alt="">
-            </div>
-            <div class="informacoes_item">
-                <h2><?php  ?></h2>
-                <p>R$3.00</p>
-            </div>
-            <div class="tipo_produto ">
-                <div>
-                    <span>Frutas</span>
-                    <span style="background-color: rgb(224, 162, 68);">Sacolão</span>
-                </div>
-                <a href=""><button><img src="" alt="">+</button></a>
-            </div>
-        </div>
-        <div class="item_oferta">
-
-            <div class="img_like">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYR5CdEMaR5_5CFm_pPYTy8RV-CtdcxwjuDOt2POzADQ&s" alt="">
-            </div>
-            <div class="informacoes_item">
-                <h2>Nome Produto</h2>
-                <p>R$8.00</p>
-            </div>
-            <div class="tipo_produto ">
-                <div>
-                    <span>Frutas</span>
-                    <span style="background-color: rgb(224, 162, 68);">Sacolão</span>
-                </div>
-                <a href=""><button><img src="" alt="">+</button></a>
-            </div>
-        </div>
-        <div class="item_oferta">
-            <div class="img_like">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYR5CdEMaR5_5CFm_pPYTy8RV-CtdcxwjuDOt2POzADQ&s" alt="">
-            </div>
-            <div class="informacoes_item">
-                <h2>Tomate</h2>
-                <p>R$8.00</p>
-            </div>
-            <div class="tipo_produto ">
-                <div>
-                    <span>Frutas</span>
-                    <span style="background-color: rgb(224, 162, 68);">Sacolão</span>
-                </div>
-                <a href=""><button><img src="" alt="">+</button></a>
-            </div>
-        </div>
-
-
-
-        <div class="item_oferta">
-            <div class="img_like">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYR5CdEMaR5_5CFm_pPYTy8RV-CtdcxwjuDOt2POzADQ&s" alt="">
-            </div>
-            <div class="informacoes_item">
-                <h2>Tomate</h2>
-                <p>R$8.00</p>
-            </div>
-            <div class="tipo_produto ">
-                <div>
-                    <span>Frutas</span>
-                    <span style="background-color: rgb(224, 162, 68);">Sacolão</span>
-                </div>
-                <a href=""><button><img src="" alt="">+</button></a>
-            </div>
-        </div>
-        <div class="item_oferta">
-            <div class="img_like">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYR5CdEMaR5_5CFm_pPYTy8RV-CtdcxwjuDOt2POzADQ&s" alt="">
-            </div>
-            <div class="informacoes_item">
-                <h2>Tomate</h2>
-                <p>R$8.00</p>
-            </div>
-            <div class="tipo_produto ">
-                <div>
-                    <span>Frutas</span>
-                    <span style="background-color: rgb(224, 162, 68);">Sacolão</span>
-                </div>
-                <a href=""><button><img src="" alt="">+</button></a>
-            </div>
-        </div>
+        <?php
+            // Incrementa o contador
+            $contador++;
+        }
+        $conn->close();
+        ?>
     </section>
     <section class="sobre_nos">
     </section>
@@ -240,6 +195,33 @@
             <img src="assets/logooffers.png" alt="">
         </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(".con-like input").click( function() {
+            var id = $(this).attr("data-id");
+            var status = $(this).attr("data-status");
+            if (status == 0){
+                $(this).attr("data-status", "1");
+            }
+            else {
+                $(this).attr("data-status", "0");
+            }
+            $.ajax({
+                method: "GET",
+                url: "actions/set_favorite.php",
+                data: {produtoID: id, fav_status: status},
+                success: function(result){
+                    if (result=="favon"){
+                        var msg = "Produto favoritado com sucesso.";
+                    }
+                    else {
+                        var msg = "Produto desfavoritado com sucesso.";
+                    }
+                    alert(msg)
+                },
+                error: function(result) {}
+            });
+        });
+    </script>
 </body>
-
 </html>
