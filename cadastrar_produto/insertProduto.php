@@ -14,11 +14,11 @@
         <div class="border p-3">
             <?php
 
-            include "./conexaoBD.php";
+            include "../conexaoBD.php";
 
             //Inserindo dados no banco
             if (isset($_POST['submit'])) {
-                if (empty($_POST['nome_produto'] || empty($_POST['categoria']  ||  empty($_POST['preco'] ||  empty($_POST['descricao'] || empty($_POST['tipo'] || empty($_POST['quant']))))))) {
+                if (empty($_POST['nome_produto'] || empty($_POST['categoria']  ||  empty($_POST['preco'] ||  empty($_POST['descricao'] || empty($_POST['tipo'] || empty($_POST['quant'] || empty($_FILES['img_produto'])))))))) {
                     echo "<div class='alert alert-danger' role='alert'>Preencha os campos! </div>";
                 } else {
                     $nome_produto = $_POST['nome_produto'];
@@ -27,8 +27,17 @@
                     $tipo = $_POST['tipo'];
                     $quant = $_POST['quant'];
                     $descricao = $_POST['descricao'];
+
+
+                    $img_nome = $_FILES["img_produto"]["name"];
+
+                    $img_destino = "../uploads_img/" . $img_nome;
+                    $img_destino_novo = str_replace("../", " ", $img_destino);
+
+
+
                     /* INSERT */
-                    $sql = "INSERT INTO produto VALUES(NULL, '$nome_produto','$categoria','$preco', '$tipo', '$quant', '$descricao')";
+                    $sql = "INSERT INTO produto VALUES(NULL, '$nome_produto','$categoria','$preco', '$tipo', '$quant', '$descricao',NULL,'$img_destino_novo')";
                     try {
                         $conn->query($sql);
                         echo "<div class='alert alert-success'role='success'>Dados inseridos com sucesso!</div>";
