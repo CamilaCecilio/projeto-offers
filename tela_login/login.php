@@ -77,7 +77,7 @@ else {
 
     <div class="part_white">
 
-        <form action=" " method="POST" class="form_login">
+        <form action="" method="POST" class="form_login">
 
             <h1>Login In</h1>
 

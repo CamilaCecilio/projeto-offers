@@ -101,28 +101,29 @@ try {
           foreach ($produtos as $produto) {
         ?>
             <div>
-              <div style="display: none;"><?php echo $produto['id_Produto']; ?></div>
-              <div><strong>Nome:</strong> <?php echo $produto['nome_produto']; ?></div>
-              <div><strong>Preço:</strong> <?php echo $produto['preco']; ?></div>
-              <div><strong>Tipo:</strong> <?php echo $produto['tipo']; ?></div>
-              <div><strong>Quantidade:</strong> <?php echo $produto['quantidade']; ?></div>
-              <div><strong>Categoria:</strong> <?php echo $produto['categoria']; ?></div>
-              <div><strong>Descrição:</strong> <?php echo $produto['descricao']; ?></div>
-              <button class="bin-button">
-                <svg class="bin-top" viewBox="0 0 39 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <line y1="5" x2="39" y2="5" stroke="white" stroke-width="4"></line>
-                  <line x1="12" y1="1.5" x2="26.0357" y2="1.5" stroke="white" stroke-width="3"></line>
-                </svg>
-                <svg class="bin-bottom" viewBox="0 0 33 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <mask id="path-1-inside-1_8_19" fill="white">
-                    <path d="M0 0H33V35C33 37.2091 31.2091 39 29 39H4C1.79086 39 0 37.2091 0 35V0Z"></path>
-                  </mask>
-                  <path d="M0 0H33H0ZM37 35C37 39.4183 33.4183 43 29 43H4C-0.418278 43 -4 39.4183 -4 35H4H29H37ZM4 43C-0.418278 43 -4 39.4183 -4 35V0H4V35V43ZM37 0V35C37 39.4183 33.4183 43 29 43V35V0H37Z" fill="white" mask="url(#path-1-inside-1_8_19)"></path>
-                  <path d="M12 6L12 29" stroke="white" stroke-width="4"></path>
-                  <path d="M21 6V29" stroke="white" stroke-width="4"></path>
-                </svg>
-              </button>
-
+              <form method="GET">
+                <div style="display: none;"><?php echo $produto['id_Produto']; ?></div>
+                <div><strong>Nome:</strong> <?php echo $produto['nome_produto']; ?></div>
+                <div><strong>Preço:</strong> <?php echo $produto['preco']; ?></div>
+                <div><strong>Tipo:</strong> <?php echo $produto['tipo']; ?></div>
+                <div><strong>Quantidade:</strong> <?php echo $produto['quantidade']; ?></div>
+                <div><strong>Categoria:</strong> <?php echo $produto['categoria']; ?></div>
+                <div><strong>Descrição:</strong> <?php echo $produto['descricao']; ?></div>
+                <button class="bin-button" id="active-modal" onclick="openProductModal(event)" data-id="<?php echo $produto['id_Produto']; ?>">
+                  <svg class="bin-top" viewBox="0 0 39 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line y1="5" x2="39" y2="5" stroke="white" stroke-width="4"></line>
+                    <line x1="12" y1="1.5" x2="26.0357" y2="1.5" stroke="white" stroke-width="3"></line>
+                  </svg>
+                  <svg class="bin-bottom" viewBox="0 0 33 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <mask id="path-1-inside-1_8_19" fill="white">
+                      <path d="M0 0H33V35C33 37.2091 31.2091 39 29 39H4C1.79086 39 0 37.2091 0 35V0Z"></path>
+                    </mask>
+                    <path d="M0 0H33H0ZM37 35C37 39.4183 33.4183 43 29 43H4C-0.418278 43 -4 39.4183 -4 35H4H29H37ZM4 43C-0.418278 43 -4 39.4183 -4 35V0H4V35V43ZM37 0V35C37 39.4183 33.4183 43 29 43V35V0H37Z" fill="white" mask="url(#path-1-inside-1_8_19)"></path>
+                    <path d="M12 6L12 29" stroke="white" stroke-width="4"></path>
+                    <path d="M21 6V29" stroke="white" stroke-width="4"></path>
+                  </svg>
+                </button>
+              </form>
             </div>
         <?php
           }
@@ -131,14 +132,32 @@ try {
         }
         ?>
       </div>
-  </div>
-  </section>
+      <div class="modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">DELETE</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="handleClose()"></button>
+            </div>
+            <div class="modal-body">
+              <p>Deseja mesmo excluir este produto?.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="handleClose()">Cancelar</button>
+              <button type="button" class="btn btn-primary" onclick="deletar()">Deletar</button>
+            </div>
+          </div>
+        </div>
+      </div </div>
+    </section>
   </div>
   <!-- AOS ANIMATION -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
   </script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="../js/favorito.js"></script>
 </body>
 
 </html>

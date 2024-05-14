@@ -18,29 +18,29 @@
 
             //Inserindo dados no banco
             if (isset($_POST['submit'])) {
-                if (empty($_POST['nome_produto'] || empty($_POST['categoria']  ||  empty($_POST['preco'] ||  empty($_POST['descricao']))))) {
+                if (empty($_POST['nome_produto'] || empty($_POST['categoria']  ||  empty($_POST['preco'] ||  empty($_POST['descricao'] || empty($_POST['tipo'] || empty($_POST['quant']))))))) {
                     echo "<div class='alert alert-danger' role='alert'>Preencha os campos! </div>";
                 } else {
                     $nome_produto = $_POST['nome_produto'];
                     $categoria = $_POST['categoria'];
                     $preco = $_POST['preco'];
+                    $tipo = $_POST['tipo'];
+                    $quant = $_POST['quant'];
                     $descricao = $_POST['descricao'];
-                
-                        $sql = "INSERT INTO produto VALUES(NULL, '$nome_produto','$categoria','$preco','$descricao')";
-
-
+                    /* INSERT */
+                    $sql = "INSERT INTO produto VALUES(NULL, '$nome_produto','$categoria','$preco', '$tipo', '$quant', '$descricao')";
                     try {
                         $conn->query($sql);
                         echo "<div class='alert alert-success'role='success'>Dados inseridos com sucesso!</div>";
-                        
                     } catch (Exception $e) {
                         echo "<div class='alert alert-danger'role='alert'>Erro ao inserir: " . $e->getMessage() . "</div>";
                     }
-                }}
-            
+                }
+            }
+
             ?>
-            <a href="cadastroProduto.php" >Voltar</a>
-            <a href="../index.php" >Home</a>
+            <a href="cadastroProduto.php">Voltar</a>
+            <a href="../index.php">Home</a>
         </div>
     </div>
 </body>

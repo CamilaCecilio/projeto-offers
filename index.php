@@ -151,7 +151,7 @@ $contador = 0;
             }
         ?>
             <div class="produto">
-                <form action="tela_favoritos/carrinho.php" method="GET">
+                <form method="GET">
                     <div style="display: none;"><?php echo $produto['id_Produto']; ?></div>
                     <div><strong>Nome:</strong> <?php echo $produto['nome_produto']; ?></div>
                     <div><strong>Preço:</strong> <?php echo $produto['preco']; ?></div>
@@ -196,32 +196,7 @@ $contador = 0;
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script>
-        $(".con-like input").click( function() {
-            var id = $(this).attr("data-id");
-            var status = $(this).attr("data-status");
-            if (status == 0){
-                $(this).attr("data-status", "1");
-            }
-            else {
-                $(this).attr("data-status", "0");
-            }
-            $.ajax({
-                method: "GET",
-                url: "actions/set_favorite.php",
-                data: {produtoID: id, fav_status: status},
-                success: function(result){
-                    if (result=="favon"){
-                        var msg = "Produto favoritado com sucesso.";
-                    }
-                    else {
-                        var msg = "Produto desfavoritado com sucesso.";
-                    }
-                    alert(msg)
-                },
-                error: function(result) {}
-            });
-        });
+    <script src="js/main.js">
     </script>
 </body>
 </html>
