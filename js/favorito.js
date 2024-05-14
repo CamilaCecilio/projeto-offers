@@ -18,16 +18,22 @@ function openProductModal(event) {
     openModal(); // Call your existing openModal() function
 }
 
-  function deletar() {
+  function deletar(id) {
     $.ajax({
         method: "GET",
         url: "../actions/deletefav.php",
         data: { produtoID: id },
         success: function (result) {
             alert("Produto deletado com sucesso");
+            handleClose();
+            $('#fav-items'+ id).fadeOut(300, function(){ $(this).remove();});
         },
-        error: function (result) { }
+        error: function (result) {
+            alert("Nao foi possivel deletar o produto")
+         }
     }); 
   }
+
+  
 
 

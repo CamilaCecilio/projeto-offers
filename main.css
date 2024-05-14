@@ -479,5 +479,9 @@ button {
     }
   }
 
+  .red-heart .poly {
+    fill: var(--red);
+  }
+
 
 

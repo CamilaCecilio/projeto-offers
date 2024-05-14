@@ -91,16 +91,11 @@ try {
     <section id="sec-fav">
       <h1>FAVORITOS</h1>
       <div class="container container-fav">
-
-
-
-
-
         <?php
         if ($produtos) {
           foreach ($produtos as $produto) {
         ?>
-            <div>
+            <div id="fav-items<?php echo $produto['id_Produto'];?>">
               <form method="GET">
                 <div style="display: none;"><?php echo $produto['id_Produto']; ?></div>
                 <div><strong>Nome:</strong> <?php echo $produto['nome_produto']; ?></div>
@@ -144,7 +139,7 @@ try {
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="handleClose()">Cancelar</button>
-              <button type="button" class="btn btn-primary" onclick="deletar()">Deletar</button>
+              <button type="button" class="btn btn-primary" onclick="deletar(<?php echo $produto['id_Produto']; ?>)">Deletar</button>
             </div>
           </div>
         </div>

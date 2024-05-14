@@ -1,3 +1,4 @@
+
 $(".con-like input").click( function() {
     var id = $(this).attr("data-id");
     var status = $(this).attr("data-status");
@@ -23,3 +24,12 @@ $(".con-like input").click( function() {
         error: function(result) {}
     });
 });
+
+const element = document.getElementsByClassName('like'); // Assuming the element has ID 'myElement'
+var statusfav = element.dataset.status;
+
+
+if(statusfav == 1) {
+    element.classList.add('red-heart')
+}
+
