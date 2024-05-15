@@ -96,6 +96,9 @@ a {
     display: flex;
     align-items: center;
     gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
   }
 
   #login svg {
@@ -482,6 +485,41 @@ button {
   .red-heart .poly {
     fill: var(--red);
   }
+  #login {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+}
 
 
+.dropdown-menu {
+    display: none; /* Oculta o dropdown por padrão */
+    position: absolute;
+    background-color: #C41926;
+    min-width: 50px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    left: -20px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block; /* Mostra o dropdown quando o elemento pai é hover */
+}
+
+.logout-link,
+.cadastro-link {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333; /* Cor do texto dos links */
+}
+
+.logout-link:hover,
+.cadastro-link:hover {
+   background-color: #C41926; /* Cor de fundo quando hover */
+}
+.dropdown{
+  top: 8px;
+  margin-left: -15px;
+}
 

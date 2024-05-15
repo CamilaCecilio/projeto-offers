@@ -14,7 +14,7 @@
         <div class="border p-3">
             <?php
             
-             include "./conexaoBD.php";
+             include "../conexaoBD.php";
 
             //Inserindo dados no banco
             if (isset($_POST['submit'])) {

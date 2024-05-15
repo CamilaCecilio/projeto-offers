@@ -1,5 +1,5 @@
 <?php
-include "./conexaoBD.php";
+include "../conexaoBD.php";
 
 if(isset($_POST['email']) || isset($_POST['senha'])) {
 
