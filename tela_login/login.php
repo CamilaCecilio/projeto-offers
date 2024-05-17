@@ -1,5 +1,5 @@
 <?php
-include "./conexaoBD.php";
+include "../conexaoBD.php";
 
 if(isset($_POST['email']) || isset($_POST['senha'])) {
 
@@ -64,6 +64,7 @@ else {
         rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,700;1,9..40,700&family=Poppins&display=swap"
         rel="stylesheet">
@@ -88,10 +89,13 @@ else {
 
             <div class="input-label">
                 <label for="senha">Senha</label>
-                <input type="password" name="senha" placeholder="***********">
+                <div id="senha1" class="password-container">
+                <input type="password" id="senhaa" name="senha" placeholder="**********">
+                <i class="bi bi-eye-fill" id="btn-senha" onclick="mostrarsenha()"></i>
             </div>
 
-            <a href="">
+
+            <a href="" class="forgot-password-link">
                 <p class="p_forgot">Esqueceu a senha?</p>
             </a>
 
@@ -104,7 +108,7 @@ else {
             </a>
         </form>
     </div>
-
+<script src="../js/main.js"></script>
 </body>
 
 </html>

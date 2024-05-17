@@ -51,6 +51,7 @@ svg{
     display: flex;
     flex-direction: column;
     row-gap: 0.5rem;
+    
 }
 
 .input-label input{
@@ -117,4 +118,21 @@ span{
 
 #flex_final_form button{
     margin-left: 0;
+}
+
+.password-container {
+    position: relative;
+    
+}
+.password-container i {
+    position: absolute;
+    font-size: 25px;
+    right: 10px; /* Adjust to fit inside the input field */
+    top: 60%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.forgot-password-link {
+   margin-top: 10px;
 }
