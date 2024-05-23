@@ -230,13 +230,113 @@ if(isset($_SESSION['nome'])) {
         $conn->close();
         ?>
     </section>
-    <section class="sobre_nos">
-    </section>
-    <footer>
-        <div class="container">
-            <img src="assets/logooffers.png" alt="">
+ <!--About-->
+ <section class="sobre_nos">
+
+<div class="rectangle">
+    <div class="half-circle">
+        <h1>Sobre-nós</h1>
+    </div>
+</div>
+
+<div class="about">
+
+</div>
+
+</section>
+
+<!--Avaliação-->
+<div class="container-avaliacao">
+<div class="div-text">
+    <h1>Avaliações</h1>
+</div>
+
+<div class="avaliacao">
+
+    <div class="comentario"></div>
+    <div class="comentario"></div>
+
+</div>
+
+</div>
+
+
+
+<!--Contato-->
+<div class="container-contact">
+
+<div class="text-contact">
+
+    <h1>Entre em contato<br>com a gente!</h1>
+    <h4>Entre em contato com a <span>OffersFast</span>,<br>
+    queremos tirar suas dúvidas, ouvir suas<br>
+    críticas e sugestões.</h4>
+
+    <button>Fale Conosco!</button>
+
+</div>
+<div class="contact">
+    <div class="head-contact">
+        <div class="left">
+            <svg xmlns="http://www.w3.org/2000/svg" height="1.8em" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#000000" d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/></svg>
+            <h4>OffersFast</h4>
         </div>
-    </footer>
+        <div class="right">
+            <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#000000" d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+        </div>
+    </div>
+    <div class="body-contact">
+        <div class="message1">
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" height="1.8em" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#000000" d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/></svg>
+            </div>
+            <div class="edit-message"><h4>Você tem alguma dúvida?</h4></div>
+        </div>
+
+        <div class="message2">
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" height="1.8em" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#000000" d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/></svg>
+            </div>
+            <div class="edit-message"><h4>Entre em contato!</h4></div>
+        </div>                
+    </div>
+
+</div>
+
+</div>
+
+
+<footer>
+<div class="container1">
+    <div class="offers">
+        <img src="./assets/logooffers.png" alt="">
+        <h1>OffersFast</h1>
+    </div>
+
+    <div class="container2">
+        <a href="#" class="back-to-top">
+            <div class="circle-footer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/></svg>
+            </div></a>            
+    </div>
+
+</div>
+
+
+
+<div class="container3">
+    <div class="btn-footer">
+        <button>Home</button>
+        <button>Produtos</button>
+        <button>Contato</button>
+    </div>
+
+    <div class="container4"><h4>© Copyright 2024, All Rights Reserved</h4></div>
+
+</div>
+
+</footer>
+   
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="js/main.js">
     </script>
