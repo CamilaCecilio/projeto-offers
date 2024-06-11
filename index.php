@@ -190,9 +190,11 @@ if (isset($_SESSION['nome'])) {
             }
             ?>
             <div class="produto">
+          
                 <form method="GET">
-
-                    <a href="infoProduto.php?id=<?= $produto['id_produto'] ?>">
+                    
+                <a href="infoProduto.php?id=<?= $produto['id_produto'] ?>">
+                   
                         <div class="img_produto"><img
                                 src="<?php echo htmlspecialchars($produto['img_produto'], ENT_QUOTES, 'UTF-8') ?>"
                                 alt="Imagem do Produto"></div>
@@ -201,7 +203,7 @@ if (isset($_SESSION['nome'])) {
                             <div class="nome_produto"> <?php echo $produto['nome_produto']; ?></div>
                             <div><span>R$</span> <?php echo $produto['preco']; ?></div>
                         </div>
-                    </a>
+                   
 
                     <div class="flex_produto">
                         <div class="tipo_produto"> <span><?php echo $produto['categoria']; ?></span></div>
@@ -237,8 +239,9 @@ if (isset($_SESSION['nome'])) {
                     </div>
                     <br />
 
-
+                    </a>
                 </form>
+                
             </div>
             <?php
             // Incrementa o contador

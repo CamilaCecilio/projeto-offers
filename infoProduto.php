@@ -2,6 +2,32 @@
 // Conexão com o banco de dados
 include "conexaoBD.php";
 
+// Verifica se o parâmetro 'id' está presente na URL
+if (isset($_GET['id'])) {
+    $id_produto = $_GET['id'];
+
+    // Consulta SQL para obter os detalhes do produto pelo ID
+    $sql = "SELECT * FROM produto WHERE id_produto = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $id_produto);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    // Verifica se o produto foi encontrado
+    if ($result->num_rows > 0) {
+        $produto = $result->fetch_assoc();
+    } else {
+        echo "Produto não encontrado.";
+        exit;
+    }
+} else {
+    echo "ID do produto não fornecido.";
+    exit;
+}
+
+$limite = 6;
+$contador = 0;
+
 session_start(); // Inicia a sessão (se já não estiver iniciada)
 
 if (isset($_SESSION['nome'])) {
@@ -11,12 +37,7 @@ if (isset($_SESSION['nome'])) {
     $nomeUsuario = '<a href="login.php">Login</a>'; // Define um link de login como padrão se o usuário não estiver logado
     $mostrarLogout = false; // Define como falso para não mostrar o dropdown de logout
 }
-
-$result = 0;
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -24,23 +45,12 @@ $result = 0;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- FONTE -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- FONTE -->
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz@0,9..40;1,9..40&display=swap"
-        rel="stylesheet"> <!-- FONTE -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- FONTE -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- FONTE -->
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,700;1,9..40,700&display=swap"
-        rel="stylesheet"> <!-- FONTE -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="actions/insertProduto.php"> <!-- ARQUIVO INSERT -->
     <link rel="stylesheet" href="css/main.css"> <!-- CSS -->
-    <title>Offers</title>
+    <title>Detalhes do Produto</title>
 </head>
 
 <body>
-    <div id="headid">
+<div id="headid">
         <div id="menu">
             <svg xmlns="http://www.w3.org/2000/svg" height="1em"
                 viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -100,45 +110,13 @@ $result = 0;
     </div>
     </div>
 
-    <?php
-
-    if (isset($_GET['id_produto'])) {
-        $id = $_GET['id_produto'];
-        try {
-            //Criar o comando
-            $sql = "SELECT * FROM produto WHERE id_produto = '$id'";
-            //Executar o comando
-            $result = $conn->query($sql);
-        } catch (Exception $e) {
-
-            echo "<div class='alert alert-danger' role='alert'>Erro ao processar</div>";
-        }
-    }
-
-    ?>
-
-    <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post"></form>
-    <?php
-    if ($result && $result->num_rows > 0) {
-        foreach ($result as $produto) {
-            ?>
-
-            <div><?php echo $produto['id_produto']; ?></div>
-            <div class="nome_produto">
-                <?php echo $produto['nome_produto']; ?>
-            </div>
-
-
-            <?php
-        }
-    } else {
-        echo "<div class='alert alert-danger'  style='width:20rem'role='alert'> Nenhum produto encontrado</div>";
-    }
-    ?>
-    </form>
-    </form>
-
+    <div class="produto-detalhes">
+        <h1><?php echo htmlspecialchars($produto['nome_produto'], ENT_QUOTES, 'UTF-8'); ?></h1>
+        <img src="<?php echo htmlspecialchars($produto['img_produto'], ENT_QUOTES, 'UTF-8'); ?>" alt="Imagem do Produto">
+        <p>Preço: R$ <?php echo htmlspecialchars($produto['preco'], ENT_QUOTES, 'UTF-8'); ?></p>
+        <p>Categoria: <?php echo htmlspecialchars($produto['categoria'], ENT_QUOTES, 'UTF-8'); ?></p>
+        <p>Descrição: <?php echo htmlspecialchars($produto['descricao'], ENT_QUOTES, 'UTF-8'); ?></p>
+    </div>
 </body>
-
 
 </html>
