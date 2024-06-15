@@ -81,6 +81,9 @@ if (isset($_SESSION['nome'])) {
                 <path fill="#ffffff"
                     d="M224 0c-17.7 0-32 14.3-32 32V51.2C119 66 64 130.6 64 208v25.4c0 45.4-15.5 89.5-43.8 124.9L5.3 377c-5.8 7.2-6.9 17.1-2.9 25.4S14.8 416 24 416H424c9.2 0 17.6-5.3 21.6-13.6s2.9-18.2-2.9-25.4l-14.9-18.6C399.5 322.9 384 278.8 384 233.4V208c0-77.4-55-142-128-156.8V32c0-17.7-14.3-32-32-32zm0 96c61.9 0 112 50.1 112 112v25.4c0 47.9 13.9 94.6 39.7 134.6H72.3C98.1 328 112 281.3 112 233.4V208c0-61.9 50.1-112 112-112zm64 352H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7s18.7-28.3 18.7-45.3z" />
             </svg>
+            <a href="lista/lista.php"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M280 64h40c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128C0 92.7 28.7 64 64 64h40 9.6C121 27.5 153.3 0 192 0s71 27.5 78.4 64H280zM64 112c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320c8.8 0 16-7.2 16-16V128c0-8.8-7.2-16-16-16H304v24c0 13.3-10.7 24-24 24H192 104c-13.3 0-24-10.7-24-24V112H64zm128-8a24 24 0 1 0 0-48 24 24 0 1 0 0 48z"/>
+        </svg> </a>
+
             <div id="login">
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" class="login-icon">
                     <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -190,9 +193,11 @@ if (isset($_SESSION['nome'])) {
             }
             ?>
             <div class="produto">
+          
                 <form method="GET">
-
-                    <a href="infoProduto.php?id=<?= $produto['id_produto'] ?>">
+                    
+                <a href="infoProduto.php?id=<?= $produto['id_produto'] ?>">
+                   
                         <div class="img_produto"><img
                                 src="<?php echo htmlspecialchars($produto['img_produto'], ENT_QUOTES, 'UTF-8') ?>"
                                 alt="Imagem do Produto"></div>
@@ -201,7 +206,7 @@ if (isset($_SESSION['nome'])) {
                             <div class="nome_produto"> <?php echo $produto['nome_produto']; ?></div>
                             <div><span>R$</span> <?php echo $produto['preco']; ?></div>
                         </div>
-                    </a>
+                   
 
                     <div class="flex_produto">
                         <div class="tipo_produto"> <span><?php echo $produto['categoria']; ?></span></div>
@@ -237,8 +242,9 @@ if (isset($_SESSION['nome'])) {
                     </div>
                     <br />
 
-
+                    </a>
                 </form>
+                
             </div>
             <?php
             // Incrementa o contador

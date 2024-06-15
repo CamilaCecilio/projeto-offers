@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin-top: 50px;
+    background-color: #C41926;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+/* Cabeçalho */
+h1.text-center {
+    margin-bottom: 30px;
+    color: black;
+    font-weight: bold;
+}
+
+/* Formulário */
+.form-label {
+    font-weight: bold;
+    color: #495057;
+}
+
+.mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+.form-control, .form-select {
+    border-radius: 0.25rem;
+    box-shadow: none;
+}
+
+.btn-primary {
+    background-color: #C41926;
+    border-color: #C41926;
+    border-radius: 0.25rem;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: #ffffff; /* Ensure the text is readable */
+}
+
+.btn-primary:hover {
+    background-color: #a81420;
+    border-color: #8f121b;
+}
+
+/* Tabela */
+.table {
+    margin-top: 30px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 12px 15px;
+    border: 1px solid #dee2e6;
+    text-align: center;
+}
+
+.table thead th {
+    background-color: #343a40;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+.table .btn-warning, .table .btn-danger {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 0.25rem;
+}
+
+.table .btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.table .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.table .btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+}
+.container2, .container3 {
+    background-color: #ffffff;
+    
+    border-radius: 8px; /* Aumentado para 16px */
+}
