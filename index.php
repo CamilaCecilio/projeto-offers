@@ -25,7 +25,7 @@ $contador = 0;
 <?php
 session_start(); // Inicia a sessão (se já não estiver iniciada)
 
-if(isset($_SESSION['nome'])) {
+if (isset($_SESSION['nome'])) {
     $nomeUsuario = '<a>' . $_SESSION['nome'] . '</a>'; // Insere o nome do usuário dentro da tag <a>
     $mostrarLogout = true; // Define como verdadeiro para mostrar o dropdown de logout
 } else {
@@ -83,23 +83,23 @@ if(isset($_SESSION['nome'])) {
                 <path fill="#ffffff" d="M224 0c-17.7 0-32 14.3-32 32V51.2C119 66 64 130.6 64 208v25.4c0 45.4-15.5 89.5-43.8 124.9L5.3 377c-5.8 7.2-6.9 17.1-2.9 25.4S14.8 416 24 416H424c9.2 0 17.6-5.3 21.6-13.6s2.9-18.2-2.9-25.4l-14.9-18.6C399.5 322.9 384 278.8 384 233.4V208c0-77.4-55-142-128-156.8V32c0-17.7-14.3-32-32-32zm0 96c61.9 0 112 50.1 112 112v25.4c0 47.9 13.9 94.6 39.7 134.6H72.3C98.1 328 112 281.3 112 233.4V208c0-61.9 50.1-112 112-112zm64 352H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7s18.7-28.3 18.7-45.3z" />
             </svg>
             <div id="login">
-    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" class="login-icon">
-        <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-        <path fill="#ffffff" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z" />
-    </svg>
-    <ul>
-        <li class="dropdown">
-            <?php echo $nomeUsuario; ?>
-            <div class="dropdown-menu">
-                <?php if($mostrarLogout) { ?>
-                    <a href="tela_login\logout.php" class="logout-link">Logout</a>
-                <?php } else { ?>
-                    <a href="tela_login\cadastro.php" class="cadastro-link">Cadastro</a>
-                <?php } ?>
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" class="login-icon">
+                    <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path fill="#ffffff" d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z" />
+                </svg>
+                <ul>
+                    <li class="dropdown">
+                        <?php echo $nomeUsuario; ?>
+                        <div class="dropdown-menu">
+                            <?php if ($mostrarLogout) { ?>
+                                <a href="tela_login\logout.php" class="logout-link">Logout</a>
+                            <?php } else { ?>
+                                <a href="tela_login\cadastro.php" class="cadastro-link">Cadastro</a>
+                            <?php } ?>
+                        </div>
+                    </li>
+                </ul>
             </div>
-        </li>
-    </ul>
-</div>
 
         </div>
     </div>
@@ -180,6 +180,25 @@ if(isset($_SESSION['nome'])) {
         </div>
     </section>
     <section class="ofertas">
+        <!-- <svg id="filter-icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#ff5900" d="M3.9 54.9C10.5 40.9 24.5 32 40 32H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9V448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6V320.9L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z"/></svg> -->
+        <form action="" method="POST">
+        <select class="form-select" name="filtro">
+            <option selected value="">Filtro</option>
+            <option value="Sacolão">Sacolão</option>
+            <option value="Supermercado">Supermercado</option>
+            <option value="Padaria">Padaria</option>
+            <option value="Outro">Outro</option>
+        </select>
+        <input type="submit" value="filtrar">                  
+        </form>
+        <?php
+            $filtro = $_POST['filtro'];
+            if(isset($filtro)) {
+                $sql = "SELECT * FROM produto WHERE categoria = '$filtro'";
+                $result = $conn->query($sql); 
+            }
+
+        ?>                                
         <?php
 
         // Loop através dos produtos usando foreach
@@ -230,113 +249,130 @@ if(isset($_SESSION['nome'])) {
         $conn->close();
         ?>
     </section>
- <!--About-->
- <section class="sobre_nos">
+    <!--About-->
+    <section class="sobre_nos">
 
-<div class="rectangle">
-    <div class="half-circle">
-        <h1>Sobre-nós</h1>
-    </div>
-</div>
-
-<div class="about">
-
-</div>
-
-</section>
-
-<!--Avaliação-->
-<div class="container-avaliacao">
-<div class="div-text">
-    <h1>Avaliações</h1>
-</div>
-
-<div class="avaliacao">
-
-    <div class="comentario"></div>
-    <div class="comentario"></div>
-
-</div>
-
-</div>
-
-
-
-<!--Contato-->
-<div class="container-contact">
-
-<div class="text-contact">
-
-    <h1>Entre em contato<br>com a gente!</h1>
-    <h4>Entre em contato com a <span>OffersFast</span>,<br>
-    queremos tirar suas dúvidas, ouvir suas<br>
-    críticas e sugestões.</h4>
-
-    <button>Fale Conosco!</button>
-
-</div>
-<div class="contact">
-    <div class="head-contact">
-        <div class="left">
-            <svg xmlns="http://www.w3.org/2000/svg" height="1.8em" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#000000" d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/></svg>
-            <h4>OffersFast</h4>
-        </div>
-        <div class="right">
-            <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#000000" d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
-        </div>
-    </div>
-    <div class="body-contact">
-        <div class="message1">
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" height="1.8em" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#000000" d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/></svg>
+        <div class="rectangle">
+            <div class="half-circle">
+                <h1>Sobre-nós</h1>
             </div>
-            <div class="edit-message"><h4>Você tem alguma dúvida?</h4></div>
         </div>
 
-        <div class="message2">
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" height="1.8em" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#000000" d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/></svg>
+        <div class="about">
+
+        </div>
+
+    </section>
+
+    <!--Avaliação-->
+    <div class="container-avaliacao">
+        <div class="div-text">
+            <h1>Avaliações</h1>
+        </div>
+
+        <div class="avaliacao">
+
+            <div class="comentario"></div>
+            <div class="comentario"></div>
+
+        </div>
+
+    </div>
+
+
+
+    <!--Contato-->
+    <div class="container-contact">
+
+        <div class="text-contact">
+
+            <h1>Entre em contato<br>com a gente!</h1>
+            <h4>Entre em contato com a <span>OffersFast</span>,<br>
+                queremos tirar suas dúvidas, ouvir suas<br>
+                críticas e sugestões.</h4>
+
+            <button>Fale Conosco!</button>
+
+        </div>
+        <div class="contact">
+            <div class="head-contact">
+                <div class="left">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1.8em" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                        <path fill="#000000" d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z" />
+                    </svg>
+                    <h4>OffersFast</h4>
+                </div>
+                <div class="right">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                        <path fill="#000000" d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z" />
+                    </svg>
+                </div>
             </div>
-            <div class="edit-message"><h4>Entre em contato!</h4></div>
-        </div>                
+            <div class="body-contact">
+                <div class="message1">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1.8em" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                            <path fill="#000000" d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z" />
+                        </svg>
+                    </div>
+                    <div class="edit-message">
+                        <h4>Você tem alguma dúvida?</h4>
+                    </div>
+                </div>
+
+                <div class="message2">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1.8em" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                            <path fill="#000000" d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z" />
+                        </svg>
+                    </div>
+                    <div class="edit-message">
+                        <h4>Entre em contato!</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
-</div>
 
-</div>
+    <footer>
+        <div class="container1">
+            <div class="offers">
+                <img src="./assets/logooffers.png" alt="">
+                <h1>OffersFast</h1>
+            </div>
 
+            <div class="container2">
+                <a href="#" class="back-to-top">
+                    <div class="circle-footer">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                            <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z" />
+                        </svg>
+                    </div>
+                </a>
+            </div>
 
-<footer>
-<div class="container1">
-    <div class="offers">
-        <img src="./assets/logooffers.png" alt="">
-        <h1>OffersFast</h1>
-    </div>
-
-    <div class="container2">
-        <a href="#" class="back-to-top">
-            <div class="circle-footer">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/></svg>
-            </div></a>            
-    </div>
-
-</div>
-
+        </div>
 
 
-<div class="container3">
-    <div class="btn-footer">
-        <button>Home</button>
-        <button>Produtos</button>
-        <button>Contato</button>
-    </div>
 
-    <div class="container4"><h4>© Copyright 2024, All Rights Reserved</h4></div>
+        <div class="container3">
+            <div class="btn-footer">
+                <button>Home</button>
+                <button>Produtos</button>
+                <button>Contato</button>
+            </div>
 
-</div>
+            <div class="container4">
+                <h4>© Copyright 2024, All Rights Reserved</h4>
+            </div>
 
-</footer>
-   
+        </div>
+
+    </footer>
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="js/main.js">
     </script>
