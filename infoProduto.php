@@ -39,13 +39,15 @@ if (isset($_SESSION['nome'])) {
 }
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css"> <!-- CSS -->
+    <link rel="stylesheet" href="css/infoProduto.css"> <!-- CSS -->
     <title>Detalhes do Produto</title>
 </head>
 
@@ -111,11 +113,30 @@ if (isset($_SESSION['nome'])) {
     </div>
 
     <div class="produto-detalhes">
-        <h1><?php echo htmlspecialchars($produto['nome_produto'], ENT_QUOTES, 'UTF-8'); ?></h1>
-        <img src="<?php echo htmlspecialchars($produto['img_produto'], ENT_QUOTES, 'UTF-8'); ?>" alt="Imagem do Produto">
-        <p>Preço: R$ <?php echo htmlspecialchars($produto['preco'], ENT_QUOTES, 'UTF-8'); ?></p>
-        <p>Categoria: <?php echo htmlspecialchars($produto['categoria'], ENT_QUOTES, 'UTF-8'); ?></p>
-        <p>Descrição: <?php echo htmlspecialchars($produto['descricao'], ENT_QUOTES, 'UTF-8'); ?></p>
+        
+        <div class="img-info">
+            <img src="<?php echo htmlspecialchars($produto['img_produto'], ENT_QUOTES, 'UTF-8'); ?>" alt="Imagem do Produto">
+        </div>
+
+        <div class="dados-info">
+            <h1><?php echo htmlspecialchars($produto['nome_produto'], ENT_QUOTES, 'UTF-8'); ?></h1>
+            
+            <div class="info1">
+                <h4>R$ <?php echo htmlspecialchars($produto['preco'], ENT_QUOTES, 'UTF-8'); ?></h4>
+                <h4><?php echo htmlspecialchars($produto['categoria'], ENT_QUOTES, 'UTF-8'); ?></h4>
+            </div>
+
+            <div class="info1">
+                <h4>Tipo: <?php echo htmlspecialchars($produto['tipo'], ENT_QUOTES, 'UTF-8'); ?></h4>
+                <h4>Quantidade: <?php echo htmlspecialchars($produto['quantidade'], ENT_QUOTES, 'UTF-8'); ?></h4>
+            </div>
+                                
+            <div class="desc">
+                <h4><?php echo htmlspecialchars($produto['descricao'], ENT_QUOTES, 'UTF-8'); ?></h4>
+            </div>
+            
+        </div>
+        
     </div>
 </body>
 
