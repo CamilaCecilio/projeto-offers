@@ -209,3 +209,14 @@ a {
 .bin-button:active {
   transform: scale(0.9);
 }
+#soma-total h1 {
+  text-align: center;
+}
+
+#soma-total h2 {
+  text-align: center;
+}
+
+#soma-total {
+  margin-top: 30px;
+}

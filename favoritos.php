@@ -115,13 +115,16 @@ if (isset($_SESSION['nome'])) {
       <div class="container container-fav">
         <?php
         if ($produtos) {
+          $total = 0;
           foreach ($produtos as $produto):
+            $precoAtual = $produto['preco'];
+            $total = $total + $precoAtual; 
             ?>
 
             <form method="GET">
-              <div id="fav_items<?php echo $produto['id_produto']; ?>">
+              <div id="fav_items<?php echo $produto['id_Produto']; ?>">
                 <div class="img_produto"><img
-                    src="<?php echo htmlspecialchars($produto['img_produto'], ENT_QUOTES, 'UTF-8') ?>"
+                    src="<?php echo htmlspecialchars($produto['destino_img'], ENT_QUOTES, 'UTF-8') ?>"
                     alt="Imagem do Produto"></div>
                 <div style="display: none;"><?php echo $produto['id_produto']; ?></div>
                 <div class="info_produto">
@@ -132,7 +135,7 @@ if (isset($_SESSION['nome'])) {
                 <div class="flex_produto">
                   <div class="tipo_produto"> <span><?php echo $produto['categoria']; ?></span></div>
                   <button class="bin-button" id="active-modal" onclick="openProductModal(event)"
-                    data-id="<?php echo $produto['id_produto']; ?>">
+                    data-id="<?php echo $produto['id_Produto']; ?>">
                     <svg class="bin-top" viewBox="0 0 39 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <line y1="5" x2="39" y2="5" stroke="white" stroke-width="4"></line>
                       <line x1="12" y1="1.5" x2="26.0357" y2="1.5" stroke="white" stroke-width="3"></line>
@@ -151,6 +154,7 @@ if (isset($_SESSION['nome'])) {
                 </div>
               </div>
             </form>
+             
 
             <?php
           endforeach;
@@ -174,11 +178,15 @@ if (isset($_SESSION['nome'])) {
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
                 onclick="handleClose()">Cancelar</button>
               <button type="button" class="btn btn-primary"
-                onclick="deletar(<?php echo $produto['id_produto']; ?>)">Deletar</button>
+                onclick="deletar(<?php echo $produto['id_Produto']; ?>)">Deletar</button>
             </div>
           </div>
         </div>
       </div>
+    </section>
+    <section id="soma-total">
+      <h1>Total</h1>
+      <h2>O total dos produtos é R$<?php echo $total; ?></h2>
     </section>
   </div>
   <!-- AOS ANIMATION -->
