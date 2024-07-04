@@ -15,6 +15,7 @@ session_start(); // Inicia a sessão (se já não estiver iniciada)
 if (isset($_SESSION['nome'])) {
     $nomeUsuario = '<a>' . $_SESSION['nome'] . '</a>'; // Insere o nome do usuário dentro da tag <a>
     $mostrarLogout = true; // Define como verdadeiro para mostrar o dropdown de logout
+    $mostrarperfil = true;
 } else {
     $nomeUsuario = '<a href="login.php">Login</a>'; // Define um link de login como padrão se o usuário não estiver logado
     $mostrarLogout = false; // Define como falso para não mostrar o dropdown de logout
@@ -96,10 +97,12 @@ if (isset($_SESSION['nome'])) {
                         <div class="dropdown-menu">
                             <?php if ($mostrarLogout) { ?>
                                 <a href="logout.php" class="logout-link">Logout</a>
+                                <a href="perfil.php">Perfil</a>
                             <?php } else { ?>
                                 <a href="cadastro.php" class="cadastro-link">Cadastro</a>
                             <?php } ?>
                         </div>
+                
                     </li>
                 </ul>
             </div>

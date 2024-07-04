@@ -30,7 +30,7 @@ else {
         $_SESSION['id_usuario'] = $usuario['id_usuario'];
         $_SESSION['nome'] = $usuario['nome'];
 
-        header("Location: ../index.php");
+        header("Location: index.php");
 
     } else {
         echo "<div class='alert alert-danger'role='alert'> Falha ao logar! E-mail ou senha incorretos </div>";
