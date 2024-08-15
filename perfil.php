@@ -74,6 +74,7 @@ $result = $conn->query($sql);
                     echo "<h5>Senha:</h5>";
                     echo "<span id='senha' class='password-hidden'>" . $user_data["senha"] . "</span>";
                     echo "<a href='#' id='toggle-senha' class='toggle-link' onclick='toggleSenha()'>Mostrar senha</a><br>";
+                    echo "<a href='alterarSenha.php' id='toggle-senha' class='toggle-link' onclick='toggleSenha()'>Alterar senha</a><br>";
                     echo "<h5>Nome de usuario:</h5>";
                     echo "<span id='nome-usuario'>" . $user_data["nome"] . "</span>";
                     echo "<a href='#' id='editar-nome' class='toggle-link' onclick='mostrarEdicaoNome()'>Editar nome</a><br>";
