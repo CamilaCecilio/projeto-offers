@@ -4,3 +4,80 @@
   a{
     text-decoration: none;
   }
+
+
+  .btn-danger {
+    margin-top: 10px;
+  }
+
+  .cadastro-link {
+    color: black;
+}
+
+.password-hidden {
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    user-select: none;
+    pointer-events: none;
+}
+
+.toggle-link {
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.edit-name {
+    display: none;
+}
+.foto-perfil-container {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-input {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  z-index: 2; /* Garante que o input esteja acima de outros elementos */
+}
+
+.foto-perfil-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.foto-perfil-text {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 5px;
+  border-radius: 50%;
+  z-index: 1; /* Garante que o texto esteja abaixo do input */
+}
+
+
+
+
+
+
+
