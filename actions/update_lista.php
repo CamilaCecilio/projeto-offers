@@ -30,11 +30,11 @@ if(isset($_POST['submit'])){
     }
     
     // Redireciona de volta para a página index.php com a mensagem
-    header("Location: lista.php?mensagem=".urlencode($mensagem));
+    header("Location: ../lista.php?mensagem=".urlencode($mensagem));
     exit(); // Termina o script para evitar qualquer saída adicional que possa causar problemas de redirecionamento
 } else {
     // Se o formulário de atualização não foi enviado, redireciona para a página inicial com uma mensagem de erro
-    header("Location: lista.php?mensagem=".urlencode("Formulário de atualização não enviado."));
+    header("Location: ../lista.php?mensagem=".urlencode("Formulário de atualização não enviado."));
     exit();
 }
 ?>

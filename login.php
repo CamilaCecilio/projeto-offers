@@ -1,45 +1,72 @@
 <?php
+// Inclui a classe de conexão
 include "conexaoBD.php";
 
-if(isset($_POST['email']) || isset($_POST['senha'])) {
+// Cria uma instância da classe Conexao
+$conexao = new Conexao();
 
-if(strlen($_POST['email']) == 0 && strlen($_POST['senha']) == 0 ) {
-    echo "<div class='alert alert-danger'role='alert'> Preencha seu e-mail e senha! </div>";
-} else if(strlen($_POST['email']) == 0) {
-    echo "<div class='alert alert-danger'role='alert'> Preencha seu e-mail ! </div>";
-}else if(strlen($_POST['senha']) == 0)
-    echo "<div class='alert alert-danger'role='alert'> Preencha sua senha! </div>";
-else {
+// Obtém a conexão PDO
+$conn = $conexao->getConnection();
 
-    $email = $conn->real_escape_string($_POST['email']);
-    $senha = $conn->real_escape_string($_POST['senha']);
+// Verifica se o formulário foi enviado
+if (isset($_POST['email']) || isset($_POST['senha'])) {
 
-    $sql_code = "SELECT * FROM usuario WHERE email = '$email' AND senha = '$senha'";
-    $sql_query = $conn->query($sql_code) or die("Falha na execução do código SQL: " . $conn->error);
-
-    $quantidade = $sql_query->num_rows;
-
-    if($quantidade == 1) {
-        
-        $usuario = $sql_query->fetch_assoc();
-
-        if(!isset($_SESSION)) {
-            session_start();
-        }
-
-        $_SESSION['id_usuario'] = $usuario['id_usuario'];
-        $_SESSION['nome'] = $usuario['nome'];
-
-        header("Location: index.php");
-
+    // Verifica se os campos estão preenchidos
+    if (strlen($_POST['email']) == 0 && strlen($_POST['senha']) == 0) {
+        echo "<div class='alert alert-danger' role='alert'>Preencha seu e-mail e senha!</div>";
+    } else if (strlen($_POST['email']) == 0) {
+        echo "<div class='alert alert-danger' role='alert'>Preencha seu e-mail!</div>";
+    } else if (strlen($_POST['senha']) == 0) {
+        echo "<div class='alert alert-danger' role='alert'>Preencha sua senha!</div>";
     } else {
-        echo "<div class='alert alert-danger'role='alert'> Falha ao logar! E-mail ou senha incorretos </div>";
+        // Obtém e filtra os dados do formulário
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
+
+        // Prepara a consulta usando placeholders para evitar injeção de SQL
+        $sql = "SELECT * FROM usuario WHERE email = :email AND senha = :senha";
+
+        try {
+            // Prepara a declaração
+            $stmt = $conn->prepare($sql);
+
+            // Vincula os parâmetros de forma segura
+            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+            $stmt->bindParam(':senha', $senha, PDO::PARAM_STR);
+
+            // Executa a consulta
+            $stmt->execute();
+
+            // Obtém o número de linhas retornadas
+            $quantidade = $stmt->rowCount();
+
+            if ($quantidade == 1) {
+                // Busca o usuário
+                $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                // Inicia a sessão, se não estiver iniciada
+                if (!isset($_SESSION)) {
+                    session_start();
+                }
+
+                // Armazena as informações do usuário na sessão
+                $_SESSION['id_usuario'] = $usuario['id_usuario'];
+                $_SESSION['nome'] = $usuario['nome'];
+
+                // Redireciona para a página inicial
+                header("Location: index.php");
+                exit();
+            } else {
+                echo "<div class='alert alert-danger' role='alert'>Falha ao logar! E-mail ou senha incorretos</div>";
+            }
+        } catch (PDOException $e) {
+            // Exibe o erro em caso de falha na execução
+            echo "<div class='alert alert-danger' role='alert'>Erro ao executar a consulta: " . $e->getMessage() . "</div>";
+        }
     }
-
-}
-
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

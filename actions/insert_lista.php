@@ -8,7 +8,7 @@ $quantidade = $_POST['quantidade_produtolista'];
 // Verificar se os campos de produto e quantidade são válidos
 if (empty($produto) || $quantidade <= 0) {
     // Redirecionar de volta com uma mensagem de erro
-    header("Location: lista.php?resposta=error&mensagem=" . urlencode("Por favor, adicione um nome de produto e uma quantidade maior que zero."));
+    header("Location: ../lista.php?resposta=error&mensagem=" . urlencode("Por favor, adicione um nome de produto e uma quantidade maior que zero."));
     exit;
 }
 
@@ -33,10 +33,10 @@ try {
     $stmt->execute();
     
     // Redirecionar com sucesso
-    header("Location: lista.php?resposta=success");
+    header("Location: ../lista.php?resposta=success");
 } catch (PDOException $e) {
     // Em caso de erro, redirecionar com a mensagem de erro
-    header("Location: lista.php?resposta=" . urlencode($e->getMessage()));
+    header("Location: ../lista.php?resposta=" . urlencode($e->getMessage()));
     exit;
 }
 ?>

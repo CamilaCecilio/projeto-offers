@@ -1,15 +1,19 @@
 <?php
+// Inclui a classe de conexão
 include "conexaoBD.php";
 session_start();
 
+// Cria uma instância da classe Conexao
 $conexao = new Conexao();
 $pdo = $conexao->getConnection(); // Obtém a conexão PDO
 
+// Verifica se o usuário está logado
 if (!isset($_SESSION['id_usuario'])) {
     header("Location: login.php");
     exit();
 }
 
+// Limpa as variáveis de sessão se não estiverem definidas
 if (!isset($_SESSION['email']) || !isset($_SESSION['senha'])) {
     unset($_SESSION['email']);
     unset($_SESSION['senha']);
@@ -21,10 +25,15 @@ try {
     // Consulta SQL para selecionar o usuário
     $sql = "SELECT * FROM usuario WHERE id_usuario = :id_usuario";
     $stmt = $pdo->prepare($sql); // Prepara a consulta
-    $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT); // Liga o parâmetro do ID do usuário
-    $stmt->execute(); // Executa a consulta
 
-    $user_data = $stmt->fetch(PDO::FETCH_ASSOC); // Busca os dados do usuário
+    // Liga o parâmetro do ID do usuário
+    $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+
+    // Executa a consulta
+    $stmt->execute();
+
+    // Busca os dados do usuário
+    $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user_data) {
         $foto_perfil = $user_data['foto_perfil']; // Obtém o caminho da foto de perfil
@@ -77,7 +86,7 @@ try {
                 <form action="actions/remover_foto_perfil.php" method="post">
                     <button type="submit" name="remover_foto" class="btn btn-danger">Remover Foto</button>
                 </form>
-
+                    
                 <button type="button" class="btn-select-file btn btn-primary mt-2" onclick="document.getElementById('file-input').click()">Alterar Foto</button>
 
                 </form>
@@ -90,7 +99,10 @@ try {
                 <?php
                 if ($user_data) {
                     echo "<h5>Email:</h5>";
-                    echo "<span>" . $user_data["email"] . "</span><br>";
+                    echo "<span id='email-usuario'>" . htmlspecialchars($user_data["email"]) . "</span>";
+                    echo "<a href='#' id='editar-email' class='toggle-link' onclick='mostrarEdicaoEmail()'>Editar email</a><br>";
+                    echo "<input type='email' id='input-email' class='edit-email' value='" . htmlspecialchars($user_data["email"]) . "' style='display: none;'>"; // Alterado para type='email'
+                    echo "<button id='salvar-email' class='edit-email' onclick='salvarEmail()' style='display: none;'>Salvar</button>"; // Renomeado para salvarEmail                    
                     echo "<h5>Senha:</h5>";
                     echo "<span id='senha' class='password-hidden'>" . $user_data["senha"] . "</span>";
                     echo "<a href='#' id='toggle-senha' class='toggle-link' onclick='toggleSenha()'>Mostrar senha</a><br>";
@@ -124,12 +136,14 @@ try {
             }
         }
 
+            // modificar nome
         function mostrarEdicaoNome() {
             document.getElementById('nome-usuario').style.display = 'none';
             document.getElementById('editar-nome').style.display = 'none';
             document.getElementById('input-nome').style.display = 'inline';
             document.getElementById('salvar-nome').style.display = 'inline';
         }
+
 
         function salvarNome() {
             var novoNome = document.getElementById('input-nome').value;
@@ -139,7 +153,7 @@ try {
             }
 
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "salvar_nome.php", true);
+            xhr.open("POST", "actions/salvar_nome.php", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
@@ -153,6 +167,7 @@ try {
             xhr.send("nome=" + encodeURIComponent(novoNome));
         }
 
+         // modificar senha
         document.getElementById('senha').classList.add('password-hidden');
 
         document.getElementById('cadastro-button').addEventListener('click', function () {
@@ -163,6 +178,50 @@ try {
                 dadosConta.style.display = 'none';
             }
         });
+
+        // modificar email
+
+        function mostrarEdicaoEmail() {
+            document.getElementById('email-usuario').style.display = 'none';
+            document.getElementById('editar-email').style.display = 'none';
+            document.getElementById('input-email').style.display = 'inline';
+            document.getElementById('salvar-email').style.display = 'inline';
+        }
+
+        function salvarEmail() {
+        var novoEmail = document.getElementById('input-email').value;
+    
+    // Verifique se o novo email não está vazio
+        if (!novoEmail) {
+        alert('O email não pode estar vazio.');
+        return;
+     }
+
+    // Exemplo de chamada AJAX usando fetch
+        fetch('actions/Alteraremail.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email: novoEmail })
+    })
+        .then(response => response.json())
+        .then(data => {
+        if (data.success) {
+            // Se a atualização foi bem-sucedida, atualize a exibição
+            document.getElementById('email-usuario').innerText = novoEmail;
+            document.getElementById('input-email').style.display = 'none';
+            document.getElementById('salvar-email').style.display = 'none';
+            document.getElementById('email-usuario').style.display = 'inline';
+            document.getElementById('editar-email').style.display = 'inline';
+        } else {
+            alert('Erro ao salvar o email: ' + data.message);
+        }
+    })
+        .catch(error => {
+        console.error('Erro ao enviar a requisição:', error);
+    });
+}
     </script>
 </body>
 

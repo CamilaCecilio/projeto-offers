@@ -44,12 +44,25 @@ if (isset($_POST['submit'])) {
 
         // Mover o arquivo para o diretório de destino
         if (move_uploaded_file($_FILES["foto_perfil"]["tmp_name"], $foto_destino)) {
-            $sql = "UPDATE usuario SET foto_perfil='$foto_destino_novo' WHERE id_usuario = $id_usuario";
+            // Conectar ao banco de dados
+            $conexao = new Conexao();
+            $pdo = $conexao->getConnection();
+
+            // Preparar a consulta SQL para atualizar a foto de perfil
+            $sql = "UPDATE usuario SET foto_perfil = :foto_perfil WHERE id_usuario = :id_usuario";
             try {
-                $conn->query($sql);
-                header("Location: ../perfil.php"); // Redireciona para a página de perfil após o upload
-                exit();
-            } catch (Exception $e) {
+                $stmt = $pdo->prepare($sql);
+                $stmt->bindParam(':foto_perfil', $foto_destino_novo, PDO::PARAM_STR);
+                $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+                
+                // Executar a consulta
+                if ($stmt->execute()) {
+                    header("Location: ../perfil.php"); // Redireciona para a página de perfil após o upload
+                    exit();
+                } else {
+                    echo "<div class='alert alert-danger' role='alert'>Erro ao atualizar a foto de perfil.</div>";
+                }
+            } catch (PDOException $e) {
                 echo "<div class='alert alert-danger' role='alert'>Erro ao atualizar: " . $e->getMessage() . "</div>";
             }
         } else {
@@ -58,3 +71,4 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
+

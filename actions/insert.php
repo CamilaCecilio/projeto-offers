@@ -13,38 +13,54 @@
     <div class="container">
         <div class="border p-3">
             <?php
-            
-             include "../conexaoBD.php";
+            include "../conexaoBD.php";
 
-            //Inserindo dados no banco
+            // Inserindo dados no banco
             if (isset($_POST['submit'])) {
-                if (empty($_POST['nome'] || empty($_POST['email']  ||  empty($_POST['senha'] )))) {
-                    echo "<div class='alert alert-danger' role='alert'>Preencha os campos! </div>";
+                // Verificação dos campos obrigatórios
+                if (empty($_POST['nome']) || empty($_POST['email']) || empty($_POST['senha'])) {
+                    echo "<div class='alert alert-danger' role='alert'>Preencha todos os campos!</div>";
                 } else {
                     $nome = $_POST['nome'];
                     $email = $_POST['email'];
                     $senha = $_POST['senha'];
 
-                    if (strlen($senha) > 6 || strlen($senha) < 6) {
-                        echo "<div class='alert alert-danger' role='alert'>A senha deve ter 6 caracteres!</div>";
+                    // Verifica o comprimento da senha
+                    if (strlen($senha) !== 6) {
+                        echo "<div class='alert alert-danger' role='alert'>A senha deve ter exatamente 6 caracteres!</div>";
                     } else {
-                        $sql = "INSERT INTO usuario VALUES(NULL, '$nome','$email','$senha')";
+                        // SQL para inserir dados
+                        $sql = "INSERT INTO usuario (nome, email, senha) VALUES (:nome, :email, :senha)";
 
+                        try {
+                            // Obtendo a conexão PDO
+                            $conexao = new Conexao();
+                            $pdo = $conexao->getConnection();
 
-                    try {
-                        $conn->query($sql);
-                        echo "<div class='alert alert-success'role='success'>Dados inseridos com sucesso!</div>";
-                        
-                    } catch (Exception $e) {
-                        echo "<div class='alert alert-danger'role='alert'>Erro ao inserir: " . $e->getMessage() . "</div>";
+                            // Preparando a consulta
+                            $stmt = $pdo->prepare($sql);
+                            
+                            // Bind dos parâmetros
+                            $stmt->bindParam(':nome', $nome);
+                            $stmt->bindParam(':email', $email);
+                            $stmt->bindParam(':senha', $senha);
+
+                            // Executando a consulta
+                            $stmt->execute();
+                            echo "<div class='alert alert-success' role='success'>Dados inseridos com sucesso!</div>";
+                            
+                        } catch (Exception $e) {
+                            echo "<div class='alert alert-danger' role='alert'>Erro ao inserir: " . $e->getMessage() . "</div>";
+                        }
                     }
-                }}
+                }
             }
             ?>
-            <a href="../cadastro.php" >Voltar</a>
-            <a href="../index.php" >Home</a>
+            <a href="../cadastro.php">Voltar</a>
+            <a href="../index.php">Home</a>
         </div>
     </div>
 </body>
+
 
 </html>

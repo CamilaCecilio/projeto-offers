@@ -17,6 +17,6 @@ if(isset($_GET['id_produtolista'])){
         $resposta = $e->getMessage();
     }
     
-    header("Location: lista.php?resposta=".$resposta);
+    header("Location: ../lista.php?resposta=".$resposta);
 }
 ?>

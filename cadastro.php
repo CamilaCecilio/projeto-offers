@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,12 +48,15 @@
                 <input type="email" name="email" placeholder="exemplo@gmail.com">
             </div>
 
+                        
             <div class="input-label">
-                <label for="senha">Senha</label>
-                <div id="senha1" class="password-container">
-                <input type="password" id="senhaa" name="senha" placeholder="**********">
-                <i class="bi bi-eye-fill" id="btn-senha" onclick="mostrarsenha()"></i>
-            </div>
+                    <label for="senha">Senha</label>
+                    <div id="senha1" class="password-container">
+                        <input type="password" id="senhaa" name="senha" placeholder="**********">
+                        <i class="bi bi-eye-fill" id="btn-senha" onclick="mostrarsenha()"></i>
+                    </div>
+                </div>
+
 
 
             <div id="flex_final_form">

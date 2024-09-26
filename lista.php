@@ -21,7 +21,7 @@ $linhas = $stmt->rowCount();
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="lista.css">
+    <link rel="stylesheet" href="css/lista.css">
     <title>Cadastro de Produto</title>
 </head>
 
@@ -32,7 +32,7 @@ $linhas = $stmt->rowCount();
         <div class="container3">
             <div class="border p-4 rounded mb-4">
 
-                <form action="insert.php" method="post">
+                <form action="actions/insert_lista.php" method="post">
                     <div class="container2 text-center">
                         <div class="row">
                             <div class="col">
@@ -71,8 +71,8 @@ $linhas = $stmt->rowCount();
                             <tr>
                                 <td><?= $r['nome_produtolista'] ?> - <?= $r['quantidade_produtolista'] ?> <?= $r['tipo_produtolista'] ?></td>
                                 <td>
-                                    <a href="update_process.php?id_produtolista=<?php echo $r['id_produtolista']; ?>" class="btn btn-warning">Editar</a>
-                                    <a href="delete.php?id_produtolista=<?= $r['id_produtolista'] ?>" class="btn btn-danger">Excluir</a>
+                                    <a href="actions/update_processlista.php?id_produtolista=<?php echo $r['id_produtolista']; ?>" class="btn btn-warning">Editar</a>
+                                    <a href="actions/deletelista.php?id_produtolista=<?= $r['id_produtolista'] ?>" class="btn btn-danger">Excluir</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

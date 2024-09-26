@@ -21,6 +21,6 @@ session_destroy();
 echo "<script>alert('Você foi desconectado com sucesso!');</script>";
 
 // Redireciona para a página de login após a confirmação
-header("Location: login.php");
+header("Location: ../login.php");
 exit;
 ?>

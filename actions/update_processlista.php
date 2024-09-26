@@ -28,7 +28,7 @@ if (isset($_GET['id_produtolista'])) {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-            <link rel="stylesheet" href="lista.css">
+            <link rel="stylesheet" href="../css/lista.css">
             <title>Editar Produto</title>
         </head>
 
@@ -38,7 +38,7 @@ if (isset($_GET['id_produtolista'])) {
                 <div class="container3">
                     <div class="border p-4 rounded mb-4">
 
-                        <form action="update.php" method="post">
+                        <form action="update_lista.php" method="post">
                             <input type="hidden" name="id_produtolista" value="<?php echo $produto['id_produtolista']; ?>">
 
                             <div class="container2 text-center">
@@ -73,12 +73,12 @@ if (isset($_GET['id_produtolista'])) {
 <?php
     } else {
         // Se o produto não for encontrado, redireciona para a página inicial com uma mensagem de erro
-        header("Location: lista.php?mensagem=" . urlencode("Produto não encontrado."));
+        header("Location: ../lista.php?mensagem=" . urlencode("Produto não encontrado."));
         exit();
     }
 } else {
     // Se o ID do produto não foi enviado via GET, redireciona para a página inicial com uma mensagem de erro
-    header("Location: lista.php?mensagem=" . urlencode("ID do produto não especificado."));
+    header("Location: ../lista.php?mensagem=" . urlencode("ID do produto não especificado."));
     exit();
 }
 ?>
