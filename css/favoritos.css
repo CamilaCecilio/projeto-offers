@@ -4,15 +4,17 @@
   box-sizing: border-box;
 }
 
-svg{
+svg {
   fill: whitesmoke;
 
 }
 
 body {
-   background-color: #FEFDF5; 
+  /*background-color: #FEFDF5;*/
+  background-color: #fefdf5;
   font-family: "DM Sans", sans-serif;
   margin: 0;
+
 }
 
 a {
@@ -20,19 +22,21 @@ a {
   color: white;
 }
 
+/*menu*/
+
 #headid {
   width: 97%;
   height: 60px;
   background-color: #c41926;
   border-radius: 10px;
-  margin:  1rem auto;
+  margin: 1rem auto;
   display: flex;
   align-items: center;
 }
 
 #menu {
   margin-left: 20px;
-  width: 20%;
+  width: 15%;
 }
 
 #home {
@@ -41,7 +45,7 @@ a {
   align-items: center;
   margin: 0 auto;
   height: 60px;
-  width: 60%;
+  width: 40%;
 }
 
 .text {
@@ -50,8 +54,8 @@ a {
   font-size: 1.5em;
 }
 
-.input {
-  width: 100%;
+.input-pesquisa {
+  width: 80%;
   max-width: 320px;
   height: 15px;
   padding: 12px;
@@ -61,6 +65,7 @@ a {
   transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
   box-shadow: 0px 0px 20px -18px;
   display: flex;
+
 }
 
 .input:hover {
@@ -76,13 +81,22 @@ a {
   border: 2px solid grey;
 }
 
+.edit-input {
+  width: 25%;
+}
+
 #icons {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   height: 60px;
   width: 20%;
+  
+}
 
+.lista-icon svg {
+  margin-top: -2px;
+  margin-left: 2px;
 }
 
 #login {
@@ -91,15 +105,20 @@ a {
   border-color: #737373;
   border-width: 0.5px;
   border-radius: 10px;
-  width: 35%;
+  width: 40%;
   height: 35px;
   display: flex;
   align-items: center;
   gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Centraliza o conteúdo horizontalmente */
 }
 
 #login svg {
   margin-left: 10px;
+  
 }
 
 #login a {
@@ -107,34 +126,109 @@ a {
   color: #fff;
 }
 
+.position-login {
+  margin-left: -15px;
+  margin-top: 13px;
+}
+
+.edit {
+  list-style: none;
+}
+
+.dropdown-menu-login {
+  display: none;
+  /* Oculta o dropdown por padrão */
+  position: absolute;
+  background-color: #da2d3b;
+  min-width: 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  margin-left: -65px;
+  width: 8rem;
+  text-align: center;
+
+}
+
+.dropdown-login:hover .dropdown-menu-login {
+  display: block;
+  /* Mostra o dropdown quando o elemento pai é hover */
+}
+
+.dropdown-login {
+  list-style: none;
+}
+
+
+.dropdown-menu {
+  display: none;
+  /* Oculta o dropdown por padrão */
+  position: absolute;
+  background-color: #da2d3b;
+  min-width: 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  left: -35px;
+  width: 10rem;
+  text-align: center;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  /* Mostra o dropdown quando o elemento pai é hover */
+}
+
+.dropdown {
+  list-style: none;
+}
+
+.logout-link,
+.cadastro-link {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  /* Cor do texto dos links */
+}
+
+.logout-link:hover,
+.cadastro-link:hover,
+.add-link:hover {
+  background-color: #C41926;
+  height: 2rem;
+}
+
+
+
+
 /* Slogan Título*/
 
-.title_home{
+.title_home {
   display: flex;
   align-items: center;
   justify-content: space-around;
 
   margin-top: 2rem;
- 
+
 }
 
-.slogan{
+.slogan {
   font-size: 2rem;
 
   margin-top: 8rem;
 }
 
-.slogan span{
+.slogan span {
   color: #C41926;
- 
+
 }
 
-.slogan p{
+.slogan p {
   font-size: 1.2rem;
 
   width: 35rem;
   margin-top: 2rem;
 }
+
 
 #sec-fav {
   margin-top: 100px;
@@ -143,16 +237,32 @@ a {
 #sec-fav>h1 {
   text-align: center;
 }
+
 .container {
   margin-top: 50px;
+
+
 }
 
 .container-fav {
-display: grid;
-grid-template-columns: 1fr 1fr 1fr;
-gap: 5%;
-row-gap: 10%;
-width: 50%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5%;
+  row-gap: 10%;
+  width: 50%;
+
+}
+
+.container-fav form {
+  width: 15rem;
+  height: 19rem;
+  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
 }
 
 /* butao deletar */
@@ -169,20 +279,25 @@ width: 50%;
   border: 3px solid rgb(255, 201, 201);
   transition-duration: 0.3s;
 }
+
 .bin-bottom {
   width: 15px;
 }
+
 .bin-top {
   width: 17px;
   transform-origin: right;
   transition-duration: 0.3s;
 }
+
 .bin-button:hover .bin-top {
   transform: rotate(45deg);
 }
+
 .bin-button:hover {
   background-color: rgb(255, 0, 0);
 }
+
 .bin-button:active {
   transform: scale(0.9);
 }

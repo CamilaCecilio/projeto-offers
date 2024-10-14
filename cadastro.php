@@ -1,7 +1,10 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Usuário</title>
@@ -23,7 +26,7 @@
         rel="stylesheet">
 
 
-    <link rel="stylesheet" href="styleLogin.css">
+    <link rel="stylesheet" href="css/mainLogin.css">
 
 </head>
 
@@ -31,7 +34,7 @@
 
     <div class="part_white">
 
-        <form action="insert.php" method="post" class="form_login">
+        <form action="actions/insert.php" method="post" class="form_login">
 
             <h1>Crie sua conta</h1>
 
@@ -45,12 +48,15 @@
                 <input type="email" name="email" placeholder="exemplo@gmail.com">
             </div>
 
+                        
             <div class="input-label">
-                <label for="senha">Senha</label>
-                <div id="senha1" class="password-container">
-                <input type="password" id="senhaa" name="senha" placeholder="**********">
-                <i class="bi bi-eye-fill" id="btn-senha" onclick="mostrarsenha()"></i>
-            </div>
+                    <label for="senha">Senha</label>
+                    <div id="senha1" class="password-container">
+                        <input type="password" id="senhaa" name="senha" placeholder="**********">
+                        <i class="bi bi-eye-fill" id="btn-senha" onclick="mostrarsenha()"></i>
+                    </div>
+                </div>
+
 
 
             <div id="flex_final_form">
@@ -61,7 +67,7 @@
 
                 <a href="index.php">
 
-                    <button class="button_login" type="submit" name="submit"> Cadastrar   <img src="./assets_login/icon_button.svg" alt=""></button>
+                    <button class="button_login" type="submit" name="submit"> Cadastrar   <img src="../assets/icon_button.svg" alt=""></button>
                   
                 </a>
             </div>

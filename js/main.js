@@ -1,35 +1,44 @@
 
-$(".con-like input").click( function() {
+$(".con-like input").click(function () {
     var id = $(this).attr("data-id");
     var status = $(this).attr("data-status");
-    if (status == 0){
+
+    // Atualiza o status localmente antes de enviar a requisição
+    if (status == 0) {
         $(this).attr("data-status", "1");
-    }
-    else {
+    } else {
         $(this).attr("data-status", "0");
     }
+
+    // Faz a requisição AJAX
     $.ajax({
         method: "GET",
         url: "actions/set_favorite.php",
-        data: {produtoID: id, fav_status: status},
-        success: function(result){
-            if (result=="favon"){
-                var msg = "Produto favoritado com sucesso.";
+        data: { produtoID: id, fav_status: $(this).attr("data-status") }, // Usa o novo status
+        success: function (result) {
+            // Exibe a mensagem com base na resposta do servidor
+            var msg;
+            if (result.trim() === "favon") { // Verifica se o resultado é "favon"
+                msg = "Produto favoritado com sucesso.";
+            } else if (result.trim() === "favoff") { // Verifica se o resultado é "favoff"
+                msg = "Produto desfavoritado com sucesso.";
+            } else {
+                msg = "Erro inesperado."; // Mensagem padrão para outros casos
             }
-            else {
-                var msg = "Produto desfavoritado com sucesso.";
-            }
-            alert(msg)
+            alert(msg);
         },
-        error: function(result) {}
+        error: function () {
+            alert("Erro ao processar a solicitação."); // Mensagem de erro genérica
+        }
     });
 });
+
 
 const element = document.getElementsByClassName('like'); // Assuming the element has ID 'myElement'
 var statusfav = element.dataset.status;
 
 
-if(statusfav == 1) {
+if (statusfav == 1) {
     element.classList.add('red-heart')
 }
 
@@ -45,3 +54,12 @@ function mostrarsenha() {
         btnShowPass.classList.replace('bi-eye-slash-fill', 'bi-eye-fill');
     }
 }
+
+// Função para detectar o pressionamento da tecla Enter
+function checkEnter(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();  // Impede que a página recarregue
+        document.forms[0].submit();  // Envia o formulário manualmente
+    }
+}
+
