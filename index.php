@@ -11,7 +11,7 @@ $sql = "SELECT * FROM produto";
 $result = $conn->query($sql); // Executar a query
 
 // Definindo o limite de produtos a serem exibidos
-$limite = 6;
+$limite = 8;
 $contador = 0;
 
 session_start(); // Inicia a sessão (se já não estiver iniciada)
@@ -25,7 +25,7 @@ if (isset($_SESSION['nome'])) {
     $mostrarLogout = false; // Define como falso para não mostrar o dropdown de logout
 }
 
-                    //RAPAZIADA A GENTE PRECISA MUDAR ISSO AQ Q TA FEI DMS  ass: emo
+
 ?>
 
 
@@ -70,7 +70,7 @@ if (isset($_SESSION['nome'])) {
                 </a>
             </div>
             <div class="text">
-                <h6 href="" class="dropdown">Produtos 
+                <h6 href="" class="dropdown">Produtos
                     <ul class="dropdown-menu ">
                         <a href="cadastroProduto.php">
                             <li class="add-link">Adicionar Oferta</li>
@@ -79,14 +79,14 @@ if (isset($_SESSION['nome'])) {
                 </h6>
             </div>
         </div>
-            
+
         <form method="POST" action="actions/search.php" class="edit-input">
             <input class="input-pesquisa" name="search" type="text" placeholder="Pesquisar Produto" onkeypress="checkEnter(event)">
             <!-- O botão não precisa ser visível, o Enter funcionará automaticamente -->
             <button type="submit" style="display: none;"></button>
         </form>
 
-        
+
         <div id="icons">
             <a href="favoritos.php">
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em"
@@ -111,28 +111,28 @@ if (isset($_SESSION['nome'])) {
             </a>
 
             <a href="login.php">
-            <div id="login" class="dropdown-login">
-                <svg xmlns="http://www.w3.org/2000/svg" height="0.9em" viewBox="0 0 448 512" class="login-icon">
-                    <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                    <path fill="#ffffff"
-                        d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z" />
-                </svg>
-                
-                <ul class= "position-login">
-                    <li class="edit">
-                        <?php echo $nomeUsuario; ?>
-                        <div class="dropdown-menu-login">
-                            <?php if ($mostrarLogout) { ?>
-                                <a href="actions/logout.php" class="logout-link">Logout</a>
-                                <a href="perfil.php">Perfil</a>
-                            <?php } else { ?>
-                                <a href="cadastro.php" class="cadastro-link">Cadastro</a>
-                            <?php } ?>
-                        </div>
+                <div id="login" class="dropdown-login">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="0.9em" viewBox="0 0 448 512" class="login-icon">
+                        <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                        <path fill="#ffffff"
+                            d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z" />
+                    </svg>
 
-                    </li>
-                </ul>
-            </div>
+                    <ul class="position-login">
+                        <li class="edit">
+                            <?php echo $nomeUsuario; ?>
+                            <div class="dropdown-menu-login">
+                                <?php if ($mostrarLogout) { ?>
+                                    <a href="actions/logout.php" class="logout-link">Logout</a>
+                                    <a href="perfil.php">Perfil</a>
+                                <?php } else { ?>
+                                    <a href="cadastro.php" class="cadastro-link">Cadastro</a>
+                                <?php } ?>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
             </a>
 
 
@@ -151,12 +151,12 @@ if (isset($_SESSION['nome'])) {
         </div>
         <div>
             <div class="box_images1">
-                <img src="./assets/sacolas-de-compras.png" alt="" style="width: 10%;">
+                <img src="./assets/lemon-solid.svg" alt="" style="width: 15%;">
                 <p>Sacolão</p>
             </div>
 
             <div class="imagens_home1">
-                <img src="./assets/Imagem1.png" alt="">
+                <img src="./assets/fruits.jpg" alt="">
             </div>
 
             <div class="box_images2">
@@ -166,12 +166,12 @@ if (isset($_SESSION['nome'])) {
 
             <div class="imagens_home2">
 
-                <img src="./assets/Imagem1.png" alt="">
+                <img src="./assets/supermaket.jpg" alt="">
             </div>
 
             <div class="box_images3">
-                <img src="./assets/estrela.svg" alt="" style="width: 20%;">
-                <p>4.8</p>
+                <img src="./assets/cart-shopping-solid.svg" alt="" style="width: 20%;">
+                <p>Supermercado</p>
             </div>
         </div>
     </section>
@@ -229,7 +229,7 @@ if (isset($_SESSION['nome'])) {
             if ($contador >= $limite) {
                 break;
             }
-            ?>
+        ?>
             <div class="produto">
 
                 <form method="GET">
@@ -255,8 +255,8 @@ if (isset($_SESSION['nome'])) {
                                     data-id="<?php echo $produto['id_produto']; ?>"
                                     data-status="<?php echo $produto['favorito']; ?>" class="like" type="checkbox"
                                     title="like" <?php if ($produto['favorito'] == 1) {
-                                        echo "checked";
-                                    } ?>>
+                                                        echo "checked";
+                                                    } ?>>
                                 <div class="checkmark">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="outline" viewBox="0 0 24 24">
                                         <path
@@ -285,7 +285,7 @@ if (isset($_SESSION['nome'])) {
                 </form>
 
             </div>
-            <?php
+        <?php
             // Incrementa o contador
             $contador++;
         }
@@ -300,27 +300,23 @@ if (isset($_SESSION['nome'])) {
                 <h1>Sobre-nós</h1>
             </div>
         </div>
-
         <div class="about">
-
+            <div class="about-text">
+                <p>
+                    No OffersFast, acreditamos que boas oportunidades devem ser compartilhadas! <br>
+                    Nosso objetivo é conectar pessoas a melhores preços, criando um espaço onde todos possam economizar juntos. <br>
+                    Trabalhamos com transparência, confiança e com o propósito de tornar a experiência de consumo mais acessível e vantajosa para todos. <br>
+                    Afinal, quando economizamos juntos, todos saem ganhando!
+                </p>
+            </div>
+            <div class="about-image">
+                <img src="assets/logooffers.png" alt="Imagem ilustrativa sobre economia" />
+            </div>
         </div>
 
     </section>
 
-    <!--Avaliação-->
-    <div class="container-avaliacao">
-        <div class="div-text">
-            <h1>Avaliações</h1>
-        </div>
-
-        <div class="avaliacao">
-
-            <div class="comentario"></div>
-            <div class="comentario"></div>
-
-        </div>
-
-    </div>
+   
 
 
 

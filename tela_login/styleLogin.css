@@ -19,17 +19,19 @@ svg{
 
 .part_white{
     background-color: #FFFFFF;
+
     border-radius: 0 ;
-    width: 55rem;
+    width: 50rem;
     height: 100vh;
-    display: flex;
+
+    display: grid;
     align-items: center;
     justify-content: center;
-    margin-left: -300px;
 }
 
 .form_login h1{
     margin: 1.5rem 0 1rem ;
+
     font-size: 2.5rem;
 }
 
@@ -37,7 +39,9 @@ svg{
     padding: 2rem;
     border: 1px solid black;
     border-radius: 1.5rem;
-    width: 38rem;
+    width: 31rem;
+    height: 35rem;
+
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -47,7 +51,7 @@ svg{
     display: flex;
     flex-direction: column;
     row-gap: 0.5rem;
-    width: 100%;
+    
 }
 
 .input-label input{
@@ -57,7 +61,8 @@ svg{
      border: none;
      border-radius: 0.5rem;
 
-     width: 80%;
+     width: 100%;
+
      font-family: "DM Sans", sans-serif;
      
 }
@@ -70,10 +75,10 @@ svg{
 }
 
 
-#button_cadastro{
+.button_login{
     background-color: #C41926;
     padding: 0.5rem;
-    width: 15rem;
+    width: 10rem;
 
     border: none;
     border-radius: 2rem;
@@ -102,50 +107,32 @@ span{
     font-weight: bold;
 }
 
-textarea{
-    resize: none;
-    height: 7rem;
-    padding: 0.5rem;
-
-    border-radius: 0.5rem;
-}
-
-.item-flex{
-    display: flex;
-    flex-direction: row;
-    gap: 5rem;
-}
-
-/* Cadastrar Produto - Parte Flex */
+/* Cadastrar Usuário - Parte Flex */
 
 #flex_final_form{
+    margin-top: 1.5rem;
+
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    gap: 4.5rem;
 }
 
 #flex_final_form button{
     margin-left: 0;
 }
 
-.form-select {
-    width: 100%;
+.password-container {
+    position: relative;
+    
+}
+.password-container i {
+    position: absolute;
+    font-size: 25px;
+    right: 10px; /* Adjust to fit inside the input field */
+    top: 60%;
+    transform: translateY(-50%);
+    cursor: pointer;
 }
 
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: auto;
-    background-color: #A00A15;
+.forgot-password-link {
+   margin-top: 10px;
 }
-
-.image-container_login{
-    width: 55.8%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-}
-

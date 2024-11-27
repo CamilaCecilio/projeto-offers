@@ -19,30 +19,83 @@ svg{
 
 .part_white{
     background-color: #FFFFFF;
-
     border-radius: 0 ;
-    width: 50rem;
+    width: 55rem;
     height: 100vh;
-
-    display: grid;
+    display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: -165px;
+    
 }
+
+.part_white_login{
+    background-color: #FFFFFF;
+    border-radius: 0 ;
+    width: 55rem;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -300px;
+    
+}
+
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: auto;
+    background-color: #A00A15;
+}
+
+/* Estilizando a imagem */
+.image-container {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.image-container_login{
+    width: 55.8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    margin-left: 15px;
+}
+
+.image-container_login img {
+    max-width: 100%;
+    height: auto;
+    margin-left: 250px;
+    
+}
+
 
 .form_login h1{
     margin: 1.5rem 0 1rem ;
-
     font-size: 2.5rem;
 }
 
 .form_login{
+    display: flex;
     padding: 2rem;
     border: 1px solid black;
     border-radius: 1.5rem;
     width: 31rem;
     height: 35rem;
-
-    display: flex;
+    margin: auto;
     flex-direction: column;
     gap: 2rem;
 }
@@ -79,16 +132,12 @@ svg{
     background-color: #C41926;
     padding: 0.5rem;
     width: 10rem;
-
     border: none;
     border-radius: 2rem;
-
     font-family: "Poppins", sans-serif;
     text-transform: uppercase;
     color: white;
-
     margin-left: 8rem;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -127,7 +176,7 @@ span{
 .password-container i {
     position: absolute;
     font-size: 25px;
-    right: 10px; /* Adjust to fit inside the input field */
+    right: 10px;
     top: 60%;
     transform: translateY(-50%);
     cursor: pointer;
@@ -135,4 +184,37 @@ span{
 
 .forgot-password-link {
    margin-top: 10px;
+}
+
+/* Contêiner geral */
+
+@media screen and (min-width: 400px) and (max-width: 1240px) {
+
+body{
+    background-color: #A00A15;
+}
+.image-container_login{
+    display: none;
+}
+h1{
+    text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+.container{
+    background-color: #A00A15;
+    padding: 0%;
+}
+.form_login{
+    text-align: left;
+}
+.part_white_login{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 35rem;
+    height: 75vh;
+    border-radius: 5%;
+    box-shadow: 5px 5px 10px 5px #3f3f3f;
+}
+
 }

@@ -26,12 +26,15 @@ try {
   echo "Error: " . $e->getMessage();
 }
 
+session_start(); // Inicia a sessão (se já não estiver iniciada)
+
 if (isset($_SESSION['nome'])) {
-  $nomeUsuario = '<a>' . $_SESSION['nome'] . '</a>'; // Insere o nome do usuário dentro da tag <a>
-  $mostrarLogout = true; // Define como verdadeiro para mostrar o dropdown de logout
+    $nomeUsuario = '<a>' . $_SESSION['nome'] . '</a>'; // Insere o nome do usuário dentro da tag <a>
+    $mostrarLogout = true; // Define como verdadeiro para mostrar o dropdown de logout
+    $mostrarperfil = true;
 } else {
-  $nomeUsuario = '<a href="login.php">Login</a>'; // Define um link de login como padrão se o usuário não estiver logado
-  $mostrarLogout = false; // Define como falso para não mostrar o dropdown de logout
+    $nomeUsuario = '<a href="login.php">Login</a>'; // Define um link de login como padrão se o usuário não estiver logado
+    $mostrarLogout = false; // Define como falso para não mostrar o dropdown de logout
 }
 ?>
 
@@ -122,14 +125,6 @@ if (isset($_SESSION['nome'])) {
                 <ul class= "position-login">
                     <li class="edit">
                         <?php echo $nomeUsuario; ?>
-                        <div class="dropdown-menu-login">
-                            <?php if ($mostrarLogout) { ?>
-                                <a href="actions/logout.php" class="logout-link">Logout</a>
-                                <a href="perfil.php">Perfil</a>
-                            <?php } else { ?>
-                                <a href="cadastro.php" class="cadastro-link">Cadastro</a>
-                            <?php } ?>
-                        </div>
 
                     </li>
                 </ul>
@@ -156,40 +151,37 @@ if (isset($_SESSION['nome'])) {
         if ($produtos) {
           foreach ($produtos as $produto):
             ?>
-
+            
+            <div id="fav_items<?php echo $produto['id_produto']; ?>">
             <form method="GET">
-              <div id="fav_items<?php echo $produto['id_produto']; ?>">
-                <div class="img_produto"><img
-                    src="<?php echo htmlspecialchars($produto['img_produto'], ENT_QUOTES, 'UTF-8') ?>"
-                    alt="Imagem do Produto"></div>
+                <div class="img_produto">
+                    <img src="<?php echo htmlspecialchars($produto['img_produto'], ENT_QUOTES, 'UTF-8'); ?>" alt="Imagem do Produto">
+                </div>
                 <div style="display: none;"><?php echo $produto['id_produto']; ?></div>
                 <div class="info_produto">
-                  <div class="nome_produto"> <?php echo $produto['nome_produto']; ?></div>
-                  <div><span>R$</span> <?php echo $produto['preco']; ?></div>
+                    <div class="nome_produto"> <?php echo $produto['nome_produto']; ?></div>
+                    <div><span>R$</span> <?php echo $produto['preco']; ?></div>
                 </div>
 
                 <div class="flex_produto">
-                  <div class="tipo_produto"> <span><?php echo $produto['categoria']; ?></span></div>
-                  <button class="bin-button" id="active-modal" onclick="openProductModal(event)"
-                    data-id="<?php echo $produto['id_produto']; ?>">
-                    <svg class="bin-top" viewBox="0 0 39 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <line y1="5" x2="39" y2="5" stroke="white" stroke-width="4"></line>
-                      <line x1="12" y1="1.5" x2="26.0357" y2="1.5" stroke="white" stroke-width="3"></line>
-                    </svg>
-                    <svg class="bin-bottom" viewBox="0 0 33 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <mask id="path-1-inside-1_8_19" fill="white">
-                        <path d="M0 0H33V35C33 37.2091 31.2091 39 29 39H4C1.79086 39 0 37.2091 0 35V0Z"></path>
-                      </mask>
-                      <path
-                        d="M0 0H33H0ZM37 35C37 39.4183 33.4183 43 29 43H4C-0.418278 43 -4 39.4183 -4 35H4H29H37ZM4 43C-0.418278 43 -4 39.4183 -4 35V0H4V35V43ZM37 0V35C37 39.4183 33.4183 43 29 43V35V0H37Z"
-                        fill="white" mask="url(#path-1-inside-1_8_19)"></path>
-                      <path d="M12 6L12 29" stroke="white" stroke-width="4"></path>
-                      <path d="M21 6V29" stroke="white" stroke-width="4"></path>
-                    </svg>
-                  </button>
+                    <div class="tipo_produto"> <span><?php echo $produto['categoria']; ?></span></div>
+                    <button class="bin-button" id="active-modal" onclick="openProductModal(event)" data-id="<?php echo $produto['id_produto']; ?>">
+                        <svg class="bin-top" viewBox="0 0 39 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line y1="5" x2="39" y2="5" stroke="white" stroke-width="4"></line>
+                            <line x1="12" y1="1.5" x2="26.0357" y2="1.5" stroke="white" stroke-width="3"></line>
+                        </svg>
+                        <svg class="bin-bottom" viewBox="0 0 33 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <mask id="path-1-inside-1_8_19" fill="white">
+                                <path d="M0 0H33V35C33 37.2091 31.2091 39 29 39H4C1.79086 39 0 37.2091 0 35V0Z"></path>
+                            </mask>
+                            <path d="M0 0H33H0ZM37 35C37 39.4183 33.4183 43 29 43H4C-0.418278 43 -4 39.4183 -4 35H4H29H37ZM4 43C-0.418278 43 -4 39.4183 -4 35V0H4V35V43ZM37 0V35C37 39.4183 33.4183 43 29 43V35V0H37Z" fill="white" mask="url(#path-1-inside-1_8_19)"></path>
+                            <path d="M12 6L12 29" stroke="white" stroke-width="4"></path>
+                            <path d="M21 6V29" stroke="white" stroke-width="4"></path>
+                        </svg>
+                    </button>
                 </div>
-              </div>
-            </form>
+            </div>
+        </form>
 
 
             <?php

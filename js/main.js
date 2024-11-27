@@ -55,6 +55,7 @@ function mostrarsenha() {
     }
 }
 
+
 // Função para detectar o pressionamento da tecla Enter
 function checkEnter(event) {
     if (event.key === "Enter") {
@@ -62,4 +63,3 @@ function checkEnter(event) {
         document.forms[0].submit();  // Envia o formulário manualmente
     }
 }
-

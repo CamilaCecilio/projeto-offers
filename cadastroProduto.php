@@ -19,8 +19,9 @@
 </head>
 
 <body>
-    <div class="part_white">
-        <form action="actions/insertProduto.php" method="POST" class="form_login" enctype="multipart/form-data">
+    <div class="container">
+        <div class="part_white">
+            <form action="actions/insertProduto.php" method="POST" class="form_login" enctype="multipart/form-data">
             <h1>Cadastre seu Produto</h1>
             <div class="input-label">
                 <label for="nome_produto">Nome do Produto</label>
@@ -72,8 +73,13 @@
                     <button id="button_cadastro" type="submit" name="submit"> Cadastrar Produto <img src="assets/icon_button.svg" alt=""></button>
                 </a>
             </div>
-    </div>
+    
     </form>
+    </div>
+
+    <div class="image-container_login">
+        <img src="assets/logooffers.png" alt="Descrição da imagem">
+    </div>
     </div>
 
 </body>

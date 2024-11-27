@@ -19,13 +19,14 @@ svg{
 
 .part_white{
     background-color: #FFFFFF;
+
     border-radius: 0 ;
-    width: 55rem;
+    width: 50rem;
     height: 100vh;
-    display: flex;
+
+    display: grid;
     align-items: center;
     justify-content: center;
-    margin-left: -300px;
 }
 
 .form_login h1{
@@ -38,6 +39,8 @@ svg{
     border: 1px solid black;
     border-radius: 1.5rem;
     width: 38rem;
+    height: 45rem;
+
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -131,21 +134,3 @@ textarea{
 .form-select {
     width: 100%;
 }
-
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: auto;
-    background-color: #A00A15;
-}
-
-.image-container_login{
-    width: 55.8%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-}
-

@@ -16,7 +16,7 @@ function openProductModal(event) {
     openModal(); // Call your existing openModal() function
 }
 
-  function deletar(id) {
+function deletar(id) {
     $.ajax({
         method: "GET",
         url: "actions/deletefav.php",
@@ -32,6 +32,9 @@ function openProductModal(event) {
     }); 
   } 
 
+ 
+
+  
 
 
 

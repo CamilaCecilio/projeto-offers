@@ -91,7 +91,7 @@ a {
   justify-content: space-evenly;
   height: 60px;
   width: 20%;
-  
+
 }
 
 .lista-icon svg {
@@ -118,7 +118,7 @@ a {
 
 #login svg {
   margin-left: 10px;
-  
+
 }
 
 #login a {
@@ -214,8 +214,6 @@ a {
 
 .slogan {
   font-size: 2rem;
-
-  margin-top: 8rem;
 }
 
 .slogan span {
@@ -238,6 +236,10 @@ a {
 .imagens_home1 {
   position: relative;
   margin-top: 2rem;
+  width: 300px;
+  /* Defina o tamanho fixo da caixa */
+  height: 300px;
+  /* Altura fixa */
 
 }
 
@@ -245,7 +247,21 @@ a {
   position: absolute;
   margin-top: -10rem;
   margin-left: -10rem;
+  width: 300px;
+  /* Defina o tamanho fixo da caixa */
+  height: 300px;
+  /* Altura fixa */
 }
+
+.imagens_home1 img,
+.imagens_home2 img {
+  object-fit: cover;
+  /* Garante que a imagem preencha a box sem distorcer */
+  object-position: center;
+  /* Centraliza a imagem */
+  border-radius: 10px;
+}
+
 
 /* Box Images - Slogan */
 
@@ -264,6 +280,8 @@ a {
   width: 8rem;
   background-color: white;
 }
+
+
 
 .box_images2 {
   display: flex;
@@ -288,12 +306,21 @@ a {
   border-radius: 2rem;
   border: 5px solid rgba(126, 126, 126, 0.116);
   position: absolute;
-  margin-left: -14rem;
+  margin-left: -17rem;
   margin-top: -7rem;
   text-align: center;
-  padding: 0.5rem;
-  width: 6rem;
+  padding: 0.7rem;
+  width: 10rem;
   background-color: white;
+}
+
+.box_images1 p,
+.box_images2 p,
+.box_images3 p {
+  margin: 0;
+  /* Remove margens do texto */
+  font-size: 1rem;
+  /* Tamanho do texto */
 }
 
 /* Categoria - Menu */
@@ -331,7 +358,7 @@ a {
 
 #ofertas {
   display: grid;
-  grid-template-columns: 25% 25% 25%;
+  grid-template-columns: 25% 25% 25% 25%;
   padding: 3rem;
   gap: 2rem;
   justify-content: center;
@@ -340,26 +367,26 @@ a {
   width: 80%;
   margin: auto;
   padding-left: 100px;
+  flex-wrap: wrap;
 }
 
 
 .produto {
   width: 15rem;
-  height: 17rem;
   box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.5);
   border-radius: 1rem;
-  display: flex;
+  display: grid;
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
   padding: 1.5rem;
+  margin: auto;
 }
 
 .img_produto {
   width: 10rem;
   height: 5rem;
-  margin-top: 1.5rem;
-
+  padding-bottom: 100px;
 }
 
 .img_produto img {
@@ -381,9 +408,11 @@ a {
   margin-top: 1rem;
   display: flex;
   justify-content: space-between;
-  width: auto; /* Faz a largura acompanhar o conteúdo */
-  display: inline-block; /* Opcional: faz com que o conteúdo ocupe apenas o espaço necessário */
-  
+  width: auto;
+  /* Faz a largura acompanhar o conteúdo */
+  display: inline-block;
+  /* Opcional: faz com que o conteúdo ocupe apenas o espaço necessário */
+
 }
 
 .tipo_produto span {
@@ -584,13 +613,50 @@ button:active .button_top {
   color: #fff;
 }
 
+.about-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  /* Para melhor adaptação em telas menores */
+}
+
 .about {
   width: 98%;
-  height: 70vh;
+  height: 50vh;
   background-color: #c41926;
   margin: auto;
   margin-bottom: 50px;
   border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.about-text {
+  flex: 1;
+  color: #fff;
+  /* Texto branco */
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  /* Cantos arredondados para estética */
 }
 
 /*Avaliação*/
@@ -631,6 +697,7 @@ button:active .button_top {
   width: 90%;
   margin: auto;
   margin-bottom: 100px;
+  margin-top: 150px;
 }
 
 .text-contact {
@@ -859,4 +926,131 @@ footer>.container3 {
 
 }
 
+/* Estilo para o menu suspenso */
+.position-login {
+  position: relative;
+  display: inline-block;
+}
+
+/* Estilo para o menu suspenso */
+.dropdown-menu-login {
+  display: none;
+  /* Inicialmente escondido */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #c41926;
+  /* Fundo vermelho */
+  border-radius: 8px;
+  /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Sombra suave */
+  border: 1px solid #ddd;
+  /* Borda de 1px */
+  padding: 10px 0;
+  min-width: 160px;
+  /* Largura mínima do menu */
+  z-index: 1000;
+}
+
+/* Quando o item de menu é hover, mostra o submenu */
+.position-login:hover .dropdown-menu-login {
+  display: block;
+  /* Exibe o menu suspenso ao passar o mouse */
+}
+
+/* Estilo para os itens do menu */
+.dropdown-menu-login a {
+  color: #fff;
+  /* Texto branco para contraste com o fundo vermelho */
+  padding: 8px 15px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+/* Efeito ao passar o mouse sobre os itens do menu */
+.dropdown-menu-login a:hover {
+  background-color: #c41926;
+  /* Cor mais escura de vermelho ao passar o mouse */
+  border-radius: 8px;
+}
+
+@media screen and (min-width: 400px) and (max-width: 850px) {
+  #headid {
+    width: 80%;
+  }
+
+  #menu {
+    width: 15%;
+    margin-left: 0;
+  }
+
+  .text {
+    font-size: 1.5em;
+  }
+
+  .input-pesquisa {
+    width: 50%;
+    max-width: none;
+  }
+
+  .slogan {
+    text-align: center;
+    font-size: 3rem;
+    white-space: normal;
+    font-size: 17px; 
+  }
+
+  #ofertas {
+    padding: 10%;
+    grid-template-columns: 15% 15% 15%;
+    flex-direction: column;
+    align-items: center; 
+    flex: 0 0 100%;
+  }
+
+  .produto {
+    width: 20rem;
+    height: 17rem;
+    padding: 2%;
+  }
+
+  .flex_produto{
+    width: 10rem;
+    height: 1rem;
+  }
+
+  .categorias_menu {
+    display: none;
+  }
+
+  footer {
+    height: 40vh;
+  }
+
+  #container-contact{
+    display: none;
+  }
+
+  .container-avaliacao{
+    display: none;
+  }
+
+  .about{
+    padding: 3%;
+  }
+
+  .about-text{
+    padding: 2%;
+    font-size: 1rem;
+  }
+
+}
+
+@media screen and (max-width: 1300px){
+  .box_images1, .box_images2, .box_images3, .imagens_home1, .imagens_home2{
+    display: none;
+  }
+}
 

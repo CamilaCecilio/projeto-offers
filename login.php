@@ -102,11 +102,9 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
 </head>
 
 <body>
-
-    <div class="part_white">
-
+<div class="container">
+    <div class="part_white_login">
         <form action="" method="POST" class="form_login">
-
             <h1>Login In</h1>
 
             <div class="input-label">
@@ -117,17 +115,19 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
             <div class="input-label">
                 <label for="senha">Senha</label>
                 <div id="senha1" class="password-container">
-                <input type="password" id="senhaa" name="senha" placeholder="**********">
-                <i class="bi bi-eye-fill" id="btn-senha" onclick="mostrarsenha()"></i>
+                    <input type="password" id="senhaa" name="senha" placeholder="**********">
+                    <i class="bi bi-eye-fill" id="btn-senha" onclick="mostrarsenha()"></i>
+                </div>
             </div>
-
 
             <a href="" class="forgot-password-link">
                 <p class="p_forgot">Esqueceu a senha?</p>
             </a>
 
             <a href="index.php">
-                <button class="button_login" type="submit">Login In <img src="../assets/icon_button.svg" alt=""></button>
+                <button class="button_login" type="submit">Login In 
+                    <img src="../assets/icon_button.svg" alt="">
+                </button>
             </a>
 
             <a href="cadastro.php">
@@ -135,6 +135,13 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
             </a>
         </form>
     </div>
+
+    <div class="image-container_login">
+        <img src="assets/logooffers.png" alt="Descrição da imagem">
+    </div>
+</div>
+
+    
 <script src="js/main.js"></script>
 </body>
 
